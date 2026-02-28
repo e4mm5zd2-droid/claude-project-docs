@@ -1,0 +1,49 @@
+# Claude Project Docs - プロジェクト設定
+# 各プロジェクトの情報を定義
+
+output_dir: docs
+
+projects:
+  x-auto-bot:
+    path: /Users/apple/Projects/business2-x-tools/x-auto-bot
+    output: x-auto-bot.md
+    title: "X Auto Bot - 暗号通貨監視・自動投稿ボット"
+    description: "X (Twitter) 自動投稿ボット。Claude AIで暗号通貨ニュースを監視・要約し自動投稿"
+    docs_dirs:
+      - docs
+    extra_docs:
+      - crypto_bot/QUICKSTART.md
+      - crypto_bot/README_monitoring.md
+      - crypto_bot/README_quote_tweet.md
+      - web/README.md
+
+  corporate-site:
+    path: /Users/apple/Projects/on-the-edge-corporate-v2
+    output: corporate-site.md
+    title: "On The Edge コーポレートサイト"
+    description: "会社コーポレートサイト。React + Vite SPA、Framer Motion、Tailwind CSS v4"
+
+  smartnr:
+    path: /Users/apple/Projects/business3-kyoto-nightwork/nightwork-scout-app
+    output: smartnr.md
+    title: "SmartNR - ナイトワーク スカウト管理アプリ"
+    description: "スカウト業務管理アプリ。Next.js フロントエンド + FastAPI バックエンド"
+    docs_dirs:
+      - docs
+    extra_docs:
+      - DEPLOYMENT.md
+      - DEPLOY_RENDER.md
+      - REBRANDING.md
+
+  line-claude-bot:
+    path: /Users/apple/Projects/shared/line-claude-bot
+    output: line-claude-bot.md
+    title: "LINE Claude Bot"
+    description: "LINE Messaging API + Claude AI チャットボット。Google Maps・Web検索連携"
+
+# 横断まとめドキュメントの設定
+company_overview:
+  output: company-overview.md
+  title: "On The Edge - サービス全体概要"
+  company_name: "On The Edge"
+  business_docs_dir: /Users/apple/Projects/shared/docs
