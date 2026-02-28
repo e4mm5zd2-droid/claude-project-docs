@@ -2,7 +2,7 @@
 
 > X (Twitter) 自動投稿ボット。Claude AIで暗号通貨ニュースを監視・要約し自動投稿
 
-*最終更新: 2026-02-28 19:21*
+*最終更新: 2026-02-28 23:01*
 
 **パス**: `/Users/apple/Projects/business2-x-tools/x-auto-bot`
 **ブランチ**: `main`

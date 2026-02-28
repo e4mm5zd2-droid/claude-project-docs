@@ -2,7 +2,7 @@
 
 > LINE Messaging API + Claude AI チャットボット。Google Maps・Web検索連携
 
-*最終更新: 2026-02-28 19:21*
+*最終更新: 2026-02-28 23:01*
 
 **パス**: `/Users/apple/Projects/shared/line-claude-bot`
 **ブランチ**: `main`

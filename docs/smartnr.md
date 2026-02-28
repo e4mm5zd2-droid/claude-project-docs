@@ -2,7 +2,7 @@
 
 > スカウト業務管理アプリ。Next.js フロントエンド + FastAPI バックエンド
 
-*最終更新: 2026-02-28 19:21*
+*最終更新: 2026-02-28 23:01*
 
 **パス**: `/Users/apple/Projects/business3-kyoto-nightwork/nightwork-scout-app`
 **ブランチ**: `main`
