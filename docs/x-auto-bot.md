@@ -2,7 +2,7 @@
 
 > X (Twitter) 自動投稿ボット。Claude AIで暗号通貨ニュースを監視・要約し自動投稿
 
-*最終更新: 2026-02-28 23:01*
+*最終更新: 2026-03-08 14:01*
 
 **パス**: `/Users/apple/Projects/business2-x-tools/x-auto-bot`
 **ブランチ**: `main`
@@ -299,6 +299,7 @@ Flask>=3.0.0
 gunicorn>=21.2.0
 SQLAlchemy>=2.0.0
 psycopg2-binary>=2.9.9
+openai>=1.0.0
 ```
 
 ---
@@ -316,6 +317,7 @@ psycopg2-binary>=2.9.9
 │   ├── README_discord_bot.md
 │   ├── README_monitoring.md
 │   ├── README_quote_tweet.md
+│   ├── affiliate_bot.py
 │   ├── auto_crypto_expert.py
 │   ├── auto_monitor_bot.py
 │   ├── auto_monitoring_bot.py
@@ -327,12 +329,15 @@ psycopg2-binary>=2.9.9
 │   ├── manual_rewrite_bot.py
 │   ├── quote_tweet.py
 │   ├── setup_scheduler.sh
-│   └── simple_manual_bot.py
+│   ├── simple_manual_bot.py
+│   ├── sou_btc_inspire_monitor.py
+│   └── sou_btc_inspire_stream.py
 ├── docs/
 │   ├── CLAUDE_PROJECT_SETUP.md
 │   ├── CLOUDFLARE_R2_SETUP.md
 │   ├── DIRECTORY_STRUCTURE.md
-│   └── RENDER_DEPLOY_GUIDE.md
+│   ├── RENDER_DEPLOY_GUIDE.md
+│   └── SOU_BTC_STREAM_SETUP.md
 ├── scripts/
 │   ├── activate_api.py
 │   ├── auth.py
@@ -384,32 +389,87 @@ psycopg2-binary>=2.9.9
 
 services:
   # 自動引用投稿ボット（2時間ごと、最大4件）
+  # 監視にxAI Grok APIを使用。X API Readクレジット消費ゼロ。
   - type: cron
     name: crypto-auto-quote-bot
     runtime: python
     plan: starter
     schedule: "0 */2 * * *"  # 2時間ごとに実行
     buildCommand: pip install -r requirements.txt
-    startCommand: python3 crypto_bot/auto_quote_monitor.py --limit 4 --hours 2
+    startCommand: python3 crypto_bot/auto_quote_monitor.py --limit 4
     envVars:
       - key: PYTHON_VERSION
         value: "3.11.0"
-      - key: ANTHROPIC_API_KEY
+      - key: XAI_API_KEY
         sync: false
-      - key: X_BEARER_TOKEN
+      - key: ANTHROPIC_API_KEY
         sync: false
       - key: X_CONSUMER_KEY
         sync: false
       - key: X_CONSUMER_SECRET
         sync: false
-      - key: DEVELOPER_ACCESS_TOKEN
+      - key: X_ACCESS_TOKEN
         sync: false
-      - key: DEVELOPER_ACCESS_TOKEN_SECRET
+      - key: X_ACCESS_TOKEN_SECRET
+        sync: false
+
+  # SOU_BTC 監視(Grok x_search) → リライト(Claude) → 投稿(X API)
+  # 監視にxAI Grok APIを使用。X API Readクレジット消費ゼロ。
+  - type: cron
+    name: sou-btc-inspire-cron
+    runtime: python
+    plan: starter
+    schedule: "* * * * *"  # 毎分実行（リアルタイム監視）
+    buildCommand: pip install -r requirements.txt
+    startCommand: python3 crypto_bot/sou_btc_inspire_monitor.py --limit 1
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.11.0"
+      - key: XAI_API_KEY
+        sync: false
+      - key: ANTHROPIC_API_KEY
+        sync: false
+      - key: X_CONSUMER_KEY
+        sync: false
+      - key: X_CONSUMER_SECRET
         sync: false
       - key: X_ACCESS_TOKEN
         sync: false
       - key: X_ACCESS_TOKEN_SECRET
         sync: false
+
+  # Triaアフィリエイトボット（1時間ごと）
+  # 海外CT速報(Grok x_search) → Claude翻訳+Tria訴求 → 引用リポスト → リプライでLinktreeリンク
+  # X API Readクレジット消費ゼロ
+  - type: cron
+    name: affiliate-bot
+    runtime: python
+    plan: starter
+    schedule: "30 * * * *"
+    buildCommand: pip install -r requirements.txt
+    startCommand: python3 crypto_bot/affiliate_bot.py
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.11.0"
+      - key: XAI_API_KEY
+        sync: false
+      - key: ANTHROPIC_API_KEY
+        sync: false
+      - key: LINKTREE_URL
+        sync: false
+      - key: X_CONSUMER_KEY
+        sync: false
+      - key: X_CONSUMER_SECRET
+        sync: false
+      - key: BOT_B_ACCESS_TOKEN
+        sync: false
+      - key: BOT_B_ACCESS_SECRET
+        sync: false
+
+  # SOU_BTC Filtered Stream（無効化済み）
+  # - type: worker
+  #   name: sou-btc-inspire-stream
+  #   ...
 
 ```
 
@@ -1538,6 +1598,96 @@ Renderダッシュボードの **Logs** タブで以下を確認できます:
 - `/requirements.txt` - Python依存関係
 - `/data/processed_tweets.txt` - 処理済みツイートID
 
+### docs/SOU_BTC_STREAM_SETUP.md
+
+# SOU_BTC Filtered Stream セットアップ手順
+
+## 概要
+
+@SOU_BTC が投稿した瞬間に検知し、自分の言葉でオリジナル投稿。ポーリングなしでAPIコストを削減。
+
+---
+
+## 手順1: ローカルで動作確認
+
+```bash
+cd /Users/apple/Projects/business2-x-tools/x-auto-bot
+source venv/bin/activate
+
+# dry-run（投稿なし、Ctrl+Cで終了）
+python crypto_bot/sou_btc_inspire_stream.py --dry-run
+```
+
+「✅ Filtered Stream 接続完了」と表示されればOK。
+
+---
+
+## 手順2: 実行方法を選択
+
+### A. ローカルで24時間稼働（無料）
+
+ターミナルを開いたまま実行し続けるか、launchdで常駐化。
+
+```bash
+# 実行（バックグラウンド）
+nohup python crypto_bot/sou_btc_inspire_stream.py >> logs/sou_btc_inspire_stream.log 2>&1 &
+```
+
+### B. Render Worker でデプロイ（月$7程度）
+
+1. **GitHubにpush**
+   ```bash
+   cd /Users/apple/Projects/business2-x-tools/x-auto-bot
+   git add .
+   git commit -m "Add SOU_BTC Filtered Stream"
+   git push origin main
+   ```
+
+2. **Render Dashboard**
+   - https://dashboard.render.com
+   - 対象のBlueprint/リポジトリを開く
+   - `sou-btc-inspire-stream` Worker が自動作成される
+
+3. **環境変数を設定**
+   - sou-btc-inspire-stream → Environment
+   - 以下を追加（crypto-auto-quote-bot と同じ値でOK）:
+     - `ANTHROPIC_API_KEY`
+     - `X_BEARER_TOKEN`
+     - `X_CONSUMER_KEY`
+     - `X_CONSUMER_SECRET`
+     - `X_ACCESS_TOKEN`
+     - `X_ACCESS_TOKEN_SECRET`
+
+4. **Deploy** をクリック
+
+---
+
+## 手順3: 稼働確認
+
+- **ローカル**: ログに「✅ Filtered Stream 接続完了」が出ていれば稼働中
+- **Render**: Dashboard の Logs タブで確認
+
+@SOU_BTC が投稿すると、数秒〜数十秒以内に @crypto_0101010 からオリジナル投稿がされる。
+
+---
+
+## トラブルシューティング
+
+| エラー | 原因 | 解決策 |
+|--------|------|--------|
+| 401 Unauthorized | Bearer Token 無効 | Developer Console でトークン再確認 |
+| Filtered Stream 利用不可 | プラン制限 | X API 従量課金で Filtered Stream が利用可能か確認 |
+| Worker が落ちる | メモリ不足 | Render の Instance Type を上げる |
+
+---
+
+## 関連ファイル
+
+- `crypto_bot/sou_btc_inspire_stream.py` - メインスクリプト
+- `data/processed_sou_btc_inspire.txt` - 処理済みツイートID
+- `logs/sou_btc_inspire_stream.log` - ログ
+
+
 ### crypto_bot/QUICKSTART.md
 
 # 暗号通貨監視ボット - クイックスタートガイド
@@ -2225,14 +2375,14 @@ DATABASE_URL=postgresql://user:password@localhost/dbname
 ## 最近の変更 (git log)
 
 ```
-7b4ab03 render.yaml整理: 未使用サービス削除（コードはGit残存）
-176b63b テキスト不足ツイートのスキップ + Claude拒否応答フィルター追加
-33ca330 quote_tweet_id優先 + URL埋め込みフォールバック方式に変更
-0df5912 リライトプロンプト改善: 元投稿への敬意を明示
-920b39c DB planをbasic-256mbに修正（Renderの実環境に合わせる）
-517e676 Cron Jobプランをfree→starterに変更（Render仕様変更対応）
-6e5f981 自動引用投稿ボット追加 & バグ修正
-198d537 Fix Render deployment error: Add missing dependencies
-6b7ac14 Add image upload feature with Cloudflare R2 support
-d3e404a Add auto-post monitoring bot for @crypto_0101010
+88aeeb8 affiliate_bot: Claude断定調拒否パターンを追加
+a021868 affiliate_bot: Grok x_search読み取り + Claudeリライトに移行
+1b1c13a fix: affiliate_bot 引用403時にURL埋め込みフォールバック追加
+97eac2d fix: affiliate-bot プランを starter に変更（cron は free 不可）
+bb2e124 feat: Triaアフィリエイトボット新規追加（affiliate_bot.py）
+d85f5b4 fix: リライトメタ説明の投稿防止 + 画像シェア系ツイートのスキップ
+ed7bf99 fix: Claude拒否応答の投稿を防止（リジェクトフィルター追加）
+6eeb226 feat: 12アカウント監視もxAI Grok x_searchに移行（X API Read完全排除）
+bbc84b2 perf: SOU_BTC監視を1分間隔に変更（リアルタイム監視）
+5fedd54 feat: SOU_BTC監視をxAI Grok x_searchに移行（X API Read消費ゼロ）
 ```

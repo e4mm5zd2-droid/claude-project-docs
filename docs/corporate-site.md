@@ -2,7 +2,7 @@
 
 > 会社コーポレートサイト。React + Vite SPA、Framer Motion、Tailwind CSS v4
 
-*最終更新: 2026-02-28 23:01*
+*最終更新: 2026-03-08 14:01*
 
 **パス**: `/Users/apple/Projects/on-the-edge-corporate-v2`
 **ブランチ**: `master`
@@ -76,6 +76,10 @@ If you are developing a production application, we recommend using TypeScript wi
 
 ```
 ├── public/
+│   ├── video/
+│   │   ├── .gitkeep
+│   │   ├── README.md
+│   │   └── hero-bg.mp4
 │   ├── _redirects
 │   ├── logo.png
 │   └── vite.svg
@@ -138,6 +142,7 @@ services:
 ## 最近の変更 (git log)
 
 ```
+64bd7db feat: ヒーロー背景を動画に変更（hero-bg.mp4 + 白半透明オーバーレイ）
 2f48e7d CRM highlights: PC-only line break 業界特化で汎用CRMが / 解決できない課題に対応
 feb9ba8 CRM highlights: fix overlap - nowrap only when explicit, increase gap
 aa550d0 Hero EN: 4 lines for mobile (eliminate→L3, extract→L4)
@@ -147,5 +152,4 @@ fa40d4c SNS intro: 最適投稿時間の分析→最適投稿時間分析 for 1-
 320fab8 SNS intro: shorten for 1-line fit (remove commas)
 80eb3aa SNS + ServicePage: 1-line fixes + intro font size revert
 8262fa0 SNS Marketing: 1-line fit for PC + mobile
-f578126 SNS Marketing: intro/highlights line breaks + shorten for 1-line fit
 ```
