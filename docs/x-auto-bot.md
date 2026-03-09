@@ -2,7 +2,7 @@
 
 > X (Twitter) 自動投稿ボット。Claude AIで暗号通貨ニュースを監視・要約し自動投稿
 
-*最終更新: 2026-03-08 14:01*
+*最終更新: 2026-03-09 22:18*
 
 **パス**: `/Users/apple/Projects/business2-x-tools/x-auto-bot`
 **ブランチ**: `main`
@@ -389,7 +389,7 @@ openai>=1.0.0
 
 services:
   # 自動引用投稿ボット（2時間ごと、最大4件）
-  # 監視にxAI Grok APIを使用。X API Readクレジット消費ゼロ。
+  # 監視: X API v2 search_recent_tweets（正確なツイートID/テキスト取得）
   - type: cron
     name: crypto-auto-quote-bot
     runtime: python
@@ -400,7 +400,7 @@ services:
     envVars:
       - key: PYTHON_VERSION
         value: "3.11.0"
-      - key: XAI_API_KEY
+      - key: X_BEARER_TOKEN
         sync: false
       - key: ANTHROPIC_API_KEY
         sync: false
@@ -413,19 +413,18 @@ services:
       - key: X_ACCESS_TOKEN_SECRET
         sync: false
 
-  # SOU_BTC 監視(Grok x_search) → リライト(Claude) → 投稿(X API)
-  # 監視にxAI Grok APIを使用。X API Readクレジット消費ゼロ。
+  # SOU_BTC 監視(X API) → リライト(Claude) → 投稿(X API)
   - type: cron
     name: sou-btc-inspire-cron
     runtime: python
     plan: starter
-    schedule: "* * * * *"  # 毎分実行（リアルタイム監視）
+    schedule: "*/15 * * * *"  # 15分ごとに実行
     buildCommand: pip install -r requirements.txt
     startCommand: python3 crypto_bot/sou_btc_inspire_monitor.py --limit 1
     envVars:
       - key: PYTHON_VERSION
         value: "3.11.0"
-      - key: XAI_API_KEY
+      - key: X_BEARER_TOKEN
         sync: false
       - key: ANTHROPIC_API_KEY
         sync: false
@@ -439,8 +438,7 @@ services:
         sync: false
 
   # Triaアフィリエイトボット（1時間ごと）
-  # 海外CT速報(Grok x_search) → Claude翻訳+Tria訴求 → 引用リポスト → リプライでLinktreeリンク
-  # X API Readクレジット消費ゼロ
+  # 海外CT速報(X API search) → Claude翻訳+Tria訴求 → 引用リポスト → リプライでLinktreeリンク
   - type: cron
     name: affiliate-bot
     runtime: python
@@ -451,7 +449,7 @@ services:
     envVars:
       - key: PYTHON_VERSION
         value: "3.11.0"
-      - key: XAI_API_KEY
+      - key: X_BEARER_TOKEN
         sync: false
       - key: ANTHROPIC_API_KEY
         sync: false
@@ -2375,14 +2373,14 @@ DATABASE_URL=postgresql://user:password@localhost/dbname
 ## 最近の変更 (git log)
 
 ```
-88aeeb8 affiliate_bot: Claude断定調拒否パターンを追加
-a021868 affiliate_bot: Grok x_search読み取り + Claudeリライトに移行
-1b1c13a fix: affiliate_bot 引用403時にURL埋め込みフォールバック追加
-97eac2d fix: affiliate-bot プランを starter に変更（cron は free 不可）
-bb2e124 feat: Triaアフィリエイトボット新規追加（affiliate_bot.py）
-d85f5b4 fix: リライトメタ説明の投稿防止 + 画像シェア系ツイートのスキップ
-ed7bf99 fix: Claude拒否応答の投稿を防止（リジェクトフィルター追加）
-6eeb226 feat: 12アカウント監視もxAI Grok x_searchに移行（X API Read完全排除）
-bbc84b2 perf: SOU_BTC監視を1分間隔に変更（リアルタイム監視）
-5fedd54 feat: SOU_BTC監視をxAI Grok x_searchに移行（X API Read消費ゼロ）
+fef127e refactor: DEVELOPER_ACCESS_TOKEN削除、読み取りをBearer Token専用に簡素化
+c653792 chore: trigger Render deploy
+91ee75a refactor: 全3ボットをGrok x_search → X API v2読み取りに戻す
+084b224 refactor: SOU_BTC監視をSQLite永続化+20分ウィンドウに全面改修
+e3e2dcb fix: sou-btc-inspire-cron を15分間隔に調整
+f9adbff fix: sou-btc-inspire-cron を毎分→毎時に変更（重複投稿防止）
+8d3f667 fix: 全3ボットに重複コンテンツ検出を追加
+80b25a4 fix: Claude断定調の拒否応答パターンを全3ボットに追加
+c0d285f fix: SOU_BTC重複投稿を防止（ソース+生成テキスト類似度チェック）
+fdacf2a fix: 投稿文字数超過時のハードカットをClaude短縮リトライに変更
 ```

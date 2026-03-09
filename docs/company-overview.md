@@ -1,6 +1,6 @@
 # On The Edge - サービス全体概要
 
-*最終更新: 2026-03-08 14:01*
+*最終更新: 2026-03-09 22:18*
 
 ---
 ## 会社・ビジネス情報
@@ -75,6 +75,8 @@
 | On The Edge コーポレートサイト | 会社コーポレートサイト。React + Vite SPA、Framer Motion、Tailwin | framer-motion, react | Render |
 | SmartNR - ナイトワーク スカウト管理アプリ | スカウト業務管理アプリ。Next.js フロントエンド + FastAPI バックエンド | next, react, fastapi, SQLAlchemy, supabase | Render |
 | LINE Claude Bot | LINE Messaging API + Claude AI チャットボット。Google Maps | @line/bot-sdk, @anthropic-ai/sdk, express | ? (Docker) |
+| X Video Bot - メディア自動転載ボット | X (Twitter) 動画・メディアの自動転載ボット。yt-dlp + tweepy で動画取得→ | tweepy | Render |
+| Rabbit Video Project - うさぎショート動画 収益化 | うさぎショート動画の5アカウント運用。TikTok x3 + YouTube x2、FFmpegバッ | anthropic | ? |
 
 ---
 ## Render デプロイ構成
@@ -93,7 +95,7 @@
 
 services:
   # 自動引用投稿ボット（2時間ごと、最大4件）
-  # 監視にxAI Grok APIを使用。X API Readクレジット消費ゼロ。
+  # 監視: X API v2 search_recent_tweets（正確なツイートID/テキスト取得）
   - type: cron
     name: crypto-auto-quote-bot
     runtime: python
@@ -104,7 +106,7 @@ services:
     envVars:
       - key: PYTHON_VERSION
         value: "3.11.0"
-      - key: XAI_API_KEY
+      - key: X_BEARER_TOKEN
         sync: false
       - key: ANTHROPIC_API_KEY
         sync: false
@@ -117,19 +119,18 @@ services:
       - key: X_ACCESS_TOKEN_SECRET
         sync: false
 
-  # SOU_BTC 監視(Grok x_search) → リライト(Claude) → 投稿(X API)
-  # 監視にxAI Grok APIを使用。X API Readクレジット消費ゼロ。
+  # SOU_BTC 監視(X API) → リライト(Claude) → 投稿(X API)
   - type: cron
     name: sou-btc-inspire-cron
     runtime: python
     plan: starter
-    schedule: "* * * * *"  # 毎分実行（リアルタイム監視）
+    schedule: "*/15 * * * *"  # 15分ごとに実行
     buildCommand: pip install -r requirements.txt
     startCommand: python3 crypto_bot/sou_btc_inspire_monitor.py --limit 1
     envVars:
       - key: PYTHON_VERSION
         value: "3.11.0"
-      - key: XAI_API_KEY
+      - key: X_BEARER_TOKEN
         sync: false
       - key: ANTHROPIC_API_KEY
         sync: false
@@ -143,8 +144,7 @@ services:
         sync: false
 
   # Triaアフィリエイトボット（1時間ごと）
-  # 海外CT速報(Grok x_search) → Claude翻訳+Tria訴求 → 引用リポスト → リプライでLinktreeリンク
-  # X API Readクレジット消費ゼロ
+  # 海外CT速報(X API search) → Claude翻訳+Tria訴求 → 引用リポスト → リプライでLinktreeリンク
   - type: cron
     name: affiliate-bot
     runtime: python
@@ -155,7 +155,7 @@ services:
     envVars:
       - key: PYTHON_VERSION
         value: "3.11.0"
-      - key: XAI_API_KEY
+      - key: X_BEARER_TOKEN
         sync: false
       - key: ANTHROPIC_API_KEY
         sync: false
@@ -245,6 +245,54 @@ services:
 
 ```
 
+### X Video Bot - メディア自動転載ボット
+
+```yaml
+# ===========================================
+# x-video-bot - Render Cron Job
+# ===========================================
+# 1時間ごとに実行、1回あたり最大2投稿、1日24投稿まで
+
+services:
+  - type: cron
+    name: x-video-bot
+    runtime: python
+    plan: starter
+    schedule: "0 * * * *"  # 毎時0分に実行（1時間ごと）
+    buildCommand: pip install -r requirements.txt
+    startCommand: python3 bot.py
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.11.0"
+      - key: X_API_KEY
+        sync: false
+      - key: X_API_SECRET
+        sync: false
+      - key: X_ACCESS_TOKEN
+        sync: false
+      - key: X_ACCESS_TOKEN_SECRET
+        sync: false
+      - key: X_BEARER_TOKEN
+        sync: false
+      - key: R2_ENDPOINT_URL
+        sync: false
+      - key: R2_ACCESS_KEY_ID
+        sync: false
+      - key: R2_SECRET_ACCESS_KEY
+        sync: false
+      - key: R2_BUCKET_NAME
+        sync: false
+      - key: MAX_POSTS_PER_RUN
+        value: "2"
+      - key: MAX_POSTS_PER_DAY
+        value: "24"
+      - key: POST_INTERVAL
+        value: "120"
+      - key: FETCH_LIMIT
+        value: "5"
+
+```
+
 ---
 ## 技術スタック横断まとめ
 
@@ -254,9 +302,22 @@ services:
 | パッケージ | 使用プロジェクト |
 |-----------|----------------|
 | SQLAlchemy | x-auto-bot (2.0.0), smartnr (2.0.46) |
+| annotated-types | smartnr (0.7.0), rabbit-video-project (0.7.0) |
+| anthropic | x-auto-bot (?), rabbit-video-project (0.84.0) |
+| anyio | smartnr (4.12.1), rabbit-video-project (4.12.1) |
+| click | smartnr (8.1.8), rabbit-video-project (8.3.1) |
+| h11 | smartnr (0.16.0), rabbit-video-project (0.16.0) |
+| idna | smartnr (3.11), rabbit-video-project (3.11) |
 | lucide-react | corporate-site (^0.575.0), smartnr (^0.563.0) |
 | openai | x-auto-bot (1.0.0), smartnr (^6.21.0), smartnr (1.59.5) |
 | psycopg2-binary | x-auto-bot (2.9.9), smartnr (2.9.11) |
-| python-dotenv | x-auto-bot (?), smartnr (1.2.1) |
+| pydantic | smartnr (2.12.5), rabbit-video-project (2.12.5) |
+| pydantic_core | smartnr (2.41.5), rabbit-video-project (2.41.5) |
+| python-dotenv | x-auto-bot (?), smartnr (1.2.1), x-video-bot (?), rabbit-video-project (1.2.2) |
 | react | corporate-site (^19.2.0), smartnr (19.2.3) |
 | react-dom | corporate-site (^19.2.0), smartnr (19.2.3) |
+| requests | x-auto-bot (?), x-video-bot (?), rabbit-video-project (2.32.5) |
+| tweepy | x-auto-bot (?), x-video-bot (?) |
+| typing-inspection | smartnr (0.4.2), rabbit-video-project (0.4.2) |
+| typing_extensions | smartnr (4.15.0), rabbit-video-project (4.15.0) |
+| yt-dlp | x-video-bot (?), rabbit-video-project (2026.2.21) |

@@ -41,6 +41,18 @@ projects:
     title: "LINE Claude Bot"
     description: "LINE Messaging API + Claude AI チャットボット。Google Maps・Web検索連携"
 
+  x-video-bot:
+    path: /Users/apple/Projects/business2-x-tools/x-video-bot
+    output: x-video-bot.md
+    title: "X Video Bot - メディア自動転載ボット"
+    description: "X (Twitter) 動画・メディアの自動転載ボット。yt-dlp + tweepy で動画取得→投稿"
+
+  rabbit-video-project:
+    path: /Users/apple/Projects/rabbit-video-project
+    output: rabbit-video-project.md
+    title: "Rabbit Video Project - うさぎショート動画 収益化"
+    description: "うさぎショート動画の5アカウント運用。TikTok x3 + YouTube x2、FFmpegバッチ処理、自動アップロード"
+
 # 横断まとめドキュメントの設定
 company_overview:
   output: company-overview.md

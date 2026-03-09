@@ -2,7 +2,7 @@
 
 > 会社コーポレートサイト。React + Vite SPA、Framer Motion、Tailwind CSS v4
 
-*最終更新: 2026-03-08 14:01*
+*最終更新: 2026-03-09 22:18*
 
 **パス**: `/Users/apple/Projects/on-the-edge-corporate-v2`
 **ブランチ**: `master`
