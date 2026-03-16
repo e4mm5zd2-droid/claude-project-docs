@@ -1,5 +1,7 @@
 # 🧠 Intelligence Index
 
+- **[2026-03-16](intelligence/daily/2026-03-16_1812.md)** — 32件 — GojiberryAI：2度のピボットを経て9ヶ月で100万ドルARR達成 / AI SDRもハルシネーション発生、運用後も毎日監視が必要 / 個人AIエージェントの職場導入リスクと企業責任
+
 - **[2026-03-16](intelligence/daily/2026-03-16_1212.md)** — 31件 — GojiberryAI：2回のピボット後に$1M ARR達成 / ByteDance、AIエージェントメモリ問題を解決するOpenViking公開 / Axe: 12MBでAIフレームワークを代替する軽量ツール
 
 - **[2026-03-16](intelligence/daily/2026-03-16_0612.md)** — 32件 — AI推論能力不足が2028年まで続く：AIサービス事業への影響 / BackOps、画面録画から業務自動化を構築するAIエージェントで$26M調達 / M&A案件自動精査システムの開発事例
