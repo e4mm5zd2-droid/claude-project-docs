@@ -1,5 +1,7 @@
 # 🧠 Intelligence Index
 
+- **[2026-03-17](intelligence/daily/2026-03-17_0012.md)** — 37件 — Claude Codeで夜間自動開発：36分で11,272行のサービス完成 / AIエージェントスキル自己改善サービスの事業機会 / Claude Cowork活用法：コンテキスト設計で業務効率化
+
 - **[2026-03-16](intelligence/daily/2026-03-16_1812.md)** — 32件 — GojiberryAI：2度のピボットを経て9ヶ月で100万ドルARR達成 / AI SDRもハルシネーション発生、運用後も毎日監視が必要 / 個人AIエージェントの職場導入リスクと企業責任
 
 - **[2026-03-16](intelligence/daily/2026-03-16_1212.md)** — 31件 — GojiberryAI：2回のピボット後に$1M ARR達成 / ByteDance、AIエージェントメモリ問題を解決するOpenViking公開 / Axe: 12MBでAIフレームワークを代替する軽量ツール
