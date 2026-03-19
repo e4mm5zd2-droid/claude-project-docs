@@ -1,5 +1,7 @@
 # 🧠 Intelligence Index
 
+- **[2026-03-19](intelligence/daily/2026-03-19_1813.md)** — 33件 — Claude Code実用化事例10選と業務自動化 / AIエージェント向けスキル自動生成ツール「unslop」 / Google AI Studio、バック〜フロントの完全コード生成機能を無料提供開始
+
 - **[2026-03-19](intelligence/daily/2026-03-19_1212.md)** — 32件 — Claude Code活用事例10選：業務自動化の具体実装 / ブートストラップ製品の月間1K$突破事例 / AIエージェント実装の200時間の知見集
 
 - **[2026-03-19](intelligence/daily/2026-03-19_0612.md)** — 28件 — Claude認定アーキテクト試験内容解説で技術力向上 / Claude Skills運用の実践知見：9タイプ分類と7つの活用コツ / 600+検証データ：最速$1K MRR達成事例
