@@ -1,5 +1,7 @@
 # 🧠 Intelligence Index
 
+- **[2026-03-19](intelligence/daily/2026-03-19_0612.md)** — 28件 — Claude認定アーキテクト試験内容解説で技術力向上 / Claude Skills運用の実践知見：9タイプ分類と7つの活用コツ / 600+検証データ：最速$1K MRR達成事例
+
 - **[2026-03-19](intelligence/daily/2026-03-19_0012.md)** — 29件 — Claude認定アーキテクト試験で本格AI開発力強化 / Claude Skills運用の実践的ノウハウ / ブートストラップ製品の1K MRR到達速度データ
 
 - **[2026-03-18](intelligence/daily/2026-03-18_1812.md)** — 30件 — AIエージェントが次世代SaaS市場を牽引 / Claude Code駆動による複数プロジェクト同時実行術 / Claude Skills運用ノウハウ - 社内AI活用の実践的手法
