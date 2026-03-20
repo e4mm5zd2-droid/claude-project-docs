@@ -1,5 +1,7 @@
 # 🧠 Intelligence Index
 
+- **[2026-03-20](intelligence/daily/2026-03-20_1821.md)** — 25件 — GoogleがLovable対抗の無料開発AIを発表 / Base44: 6ヶ月で月収2770万円達成、Wixに買収されたAIノーコード事例 / AI API費用99%削減・完全自動化開発ツールSERV
+
 - **[2026-03-20](intelligence/daily/2026-03-20_1212.md)** — 28件 — GoogleがLovableと競合するノーコード開発ツールを無料リリース / AIエージェントの物理世界への拡張可能性 / 2026年のキーロール：AIエージェント導入専門家
 
 - **[2026-03-20](intelligence/daily/2026-03-20_0612.md)** — 33件 — AIを機能ではなく事業モデルとして扱う創業者が勝利 / Claude Code活用書籍作成と非エンジニア向けAI教育市場 / Claude CodeによるAI動画編集の完全自動化実現
