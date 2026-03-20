@@ -1,5 +1,7 @@
 # 🧠 Intelligence Index
 
+- **[2026-03-20](intelligence/daily/2026-03-20_0011.md)** — 31件 — OpenClawを実用レベルで運用する11の実践的手順 / AI成功企業の差別化要因：機能ではなくビジネスモデル / Cursor社のComposer 2で開発コスト大幅削減
+
 - **[2026-03-19](intelligence/daily/2026-03-19_1813.md)** — 33件 — Claude Code実用化事例10選と業務自動化 / AIエージェント向けスキル自動生成ツール「unslop」 / Google AI Studio、バック〜フロントの完全コード生成機能を無料提供開始
 
 - **[2026-03-19](intelligence/daily/2026-03-19_1212.md)** — 32件 — Claude Code活用事例10選：業務自動化の具体実装 / ブートストラップ製品の月間1K$突破事例 / AIエージェント実装の200時間の知見集
