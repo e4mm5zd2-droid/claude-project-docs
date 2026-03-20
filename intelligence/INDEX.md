@@ -1,5 +1,7 @@
 # 🧠 Intelligence Index
 
+- **[2026-03-20](intelligence/daily/2026-03-20_1212.md)** — 28件 — GoogleがLovableと競合するノーコード開発ツールを無料リリース / AIエージェントの物理世界への拡張可能性 / 2026年のキーロール：AIエージェント導入専門家
+
 - **[2026-03-20](intelligence/daily/2026-03-20_0612.md)** — 33件 — AIを機能ではなく事業モデルとして扱う創業者が勝利 / Claude Code活用書籍作成と非エンジニア向けAI教育市場 / Claude CodeによるAI動画編集の完全自動化実現
 
 - **[2026-03-20](intelligence/daily/2026-03-20_0011.md)** — 31件 — OpenClawを実用レベルで運用する11の実践的手順 / AI成功企業の差別化要因：機能ではなくビジネスモデル / Cursor社のComposer 2で開発コスト大幅削減
