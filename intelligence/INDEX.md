@@ -1,5 +1,7 @@
 # 🧠 Intelligence Index
 
+- **[2026-03-20](intelligence/daily/2026-03-20_0612.md)** — 33件 — AIを機能ではなく事業モデルとして扱う創業者が勝利 / Claude Code活用書籍作成と非エンジニア向けAI教育市場 / Claude CodeによるAI動画編集の完全自動化実現
+
 - **[2026-03-20](intelligence/daily/2026-03-20_0011.md)** — 31件 — OpenClawを実用レベルで運用する11の実践的手順 / AI成功企業の差別化要因：機能ではなくビジネスモデル / Cursor社のComposer 2で開発コスト大幅削減
 
 - **[2026-03-19](intelligence/daily/2026-03-19_1813.md)** — 33件 — Claude Code実用化事例10選と業務自動化 / AIエージェント向けスキル自動生成ツール「unslop」 / Google AI Studio、バック〜フロントの完全コード生成機能を無料提供開始
