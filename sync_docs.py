@@ -21,6 +21,15 @@ import yaml
 SCRIPT_DIR = Path(__file__).parent.resolve()
 CONFIG_PATH = SCRIPT_DIR / "config.yaml"
 
+# 事業別フォルダマッピング（プロジェクト名のキーワード → 出力先フォルダ）
+BUSINESS_MAPPING = {
+    "x-auto-bot": "jigyou2",
+    "x_auto_bot": "jigyou2",
+    "smartnr": "jigyou3",
+    "nightwork": "jigyou3",
+    "corporate": "sokatsu",
+}
+
 
 def load_config() -> dict:
     with open(CONFIG_PATH) as f:
@@ -358,6 +367,18 @@ def generate_company_overview(config: dict, project_configs: dict) -> str:
     return "\n".join(sections) + "\n"
 
 
+def copy_to_business_folder(doc_filename: str, content: str):
+    """生成されたドキュメントを事業別フォルダにもコピーする"""
+    for keyword, folder in BUSINESS_MAPPING.items():
+        if keyword in doc_filename.lower():
+            dest_dir = SCRIPT_DIR / folder
+            dest_dir.mkdir(parents=True, exist_ok=True)
+            dest_path = dest_dir / doc_filename
+            dest_path.write_text(content, encoding="utf-8")
+            print(f"  → {folder}/{doc_filename} にもコピー")
+            return
+
+
 def git_auto_push(output_dir: Path):
     """Commit and push changes to GitHub."""
     repo_dir = str(SCRIPT_DIR)
@@ -372,8 +393,8 @@ def git_auto_push(output_dir: Path):
     print(f"\nChanges detected:\n{status}")
 
     # Stage docs
-    run_cmd(["git", "add", "docs/"], cwd=repo_dir)
-    run_cmd(["git", "add", "config.yaml"], cwd=repo_dir)
+    for add_dir in ["docs/", "shared/", "sokatsu/", "jigyou1/", "jigyou2/", "jigyou3/", "jigyou4/", "secretary/", "config.yaml"]:
+        run_cmd(["git", "add", add_dir], cwd=repo_dir)
 
     # Commit
     msg = f"docs: sync project docs ({now})"
@@ -415,6 +436,7 @@ def main():
         doc = generate_project_doc(name, proj_config)
         out_path = output_dir / proj_config["output"]
         out_path.write_text(doc, encoding="utf-8")
+        copy_to_business_folder(proj_config["output"], doc)
         print(f"OK ({len(doc):,} chars)")
 
     # Generate company overview

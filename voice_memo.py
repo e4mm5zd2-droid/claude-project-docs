@@ -25,6 +25,15 @@ TRANSCRIPTS_DIR = DOCS_DIR / "transcripts"
 
 SUPPORTED_FORMATS = {".m4a", ".mp3", ".wav", ".webm", ".ogg", ".flac"}
 
+# 事業別議事録フォルダ
+BUSINESS_MINUTES_DIRS = {
+    "sokatsu": "sokatsu/minutes",
+    "jigyou1": "jigyou1/minutes",
+    "jigyou2": "jigyou2/minutes",
+    "jigyou3": "jigyou3/minutes",
+    "jigyou4": "jigyou4/minutes",
+}
+
 STRUCTURING_PROMPT = """\
 以下は音声メモの文字起こしテキストです。これを構造化されたミーティングメモに変換してください。
 
@@ -116,10 +125,15 @@ def save_transcript(transcript: str, stem: str) -> Path:
     return path
 
 
-def save_structured(content: str, output_name: str) -> Path:
+def save_structured(content: str, output_name: str, business: str = None) -> Path:
     """構造化Markdownを保存"""
-    DOCS_DIR.mkdir(parents=True, exist_ok=True)
-    path = DOCS_DIR / output_name
+    if business and business in BUSINESS_MINUTES_DIRS:
+        target_dir = SCRIPT_DIR / BUSINESS_MINUTES_DIRS[business]
+    else:
+        target_dir = DOCS_DIR
+
+    target_dir.mkdir(parents=True, exist_ok=True)
+    path = target_dir / output_name
     path.write_text(content, encoding="utf-8")
     return path
 
@@ -134,6 +148,12 @@ def main():
         "--transcript-only",
         action="store_true",
         help="文字起こしのみ（Claude構造化なし）",
+    )
+    parser.add_argument(
+        "--business", "-b",
+        choices=list(BUSINESS_MINUTES_DIRS.keys()),
+        default=None,
+        help="事業別フォルダに出力 (例: -b jigyou2 → jigyou2/minutes/ に保存)",
     )
     args = parser.parse_args()
 
@@ -181,10 +201,11 @@ def main():
     else:
         output_name = f"{today}_{stem}.md"
 
-    output_path = save_structured(structured, output_name)
+    output_path = save_structured(structured, output_name, args.business)
     print(f"      完了: {output_path}")
 
-    print(f"\n次のステップ: sync-docs で Claude Projects に反映")
+    biz_label = f" (事業: {args.business})" if args.business else ""
+    print(f"\n次のステップ: git add & push で Claude Projects に反映{biz_label}")
 
 
 if __name__ == "__main__":
