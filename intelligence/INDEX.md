@@ -1,5 +1,7 @@
 # 🧠 Intelligence Index
 
+- **[2026-03-23](intelligence/daily/2026-03-23_1212.md)** — 29件 — AdSenseと比較したサブスク収益の圧倒的差 / freee MCPを活用した家計簿アプリ自作 / 超高利益率・完全自動化ビジネスモデル
+
 - **[2026-03-23](intelligence/daily/2026-03-23_0611.md)** — 29件 — freee MCPで家計簿アプリ自作事例 / BridgeMind：1人+AIで$50K ARR達成 / AdSense vs サブスク収益：700倍の差
 
 - **[2026-03-23](intelligence/daily/2026-03-23_0011.md)** — 25件 — BridgeMind：個人でARR5万ドル達成 / Claude Code×freee MCPで家計簿アプリ自作事例 / 自律AIエージェントの収益化ネットワーク
