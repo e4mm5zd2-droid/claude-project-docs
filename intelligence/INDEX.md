@@ -1,5 +1,7 @@
 # 🧠 Intelligence Index
 
+- **[2026-03-23](intelligence/daily/2026-03-23_0011.md)** — 25件 — BridgeMind：個人でARR5万ドル達成 / Claude Code×freee MCPで家計簿アプリ自作事例 / 自律AIエージェントの収益化ネットワーク
+
 - **[2026-03-22](intelligence/daily/2026-03-22_1811.md)** — 25件 — AIエージェントが自律的に仕事を受注・収益化できるプロトコル / OpenClawが週次業務を完全自動化 / 1人＋AI運営でARR5万ドル達成事例
 
 - **[2026-03-22](intelligence/daily/2026-03-22_1211.md)** — 27件 — LLM層複製による推論性能向上手法 / AIエージェントが自動で仕事を受注・実行できるプロトコル / AI活用で$1M ARRが6日で達成可能な時代
