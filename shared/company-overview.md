@@ -94,3 +94,27 @@
 - 1つの事業だけに関する質問 → その事業のProject
 - 2つ以上の事業に関わる質問 → 統括Project
 - タスク進捗・リサーチ依頼 → HISHO
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+## Mac mini AIサーバー（2026年3月導入）
+
+Mac mini M4 16GB を常時稼働AIサーバーとして運用中。
+
+### 稼働中のサービス
+- Claude Code + Telegram Channel（tmux: kurodoセッション）
+  - テラス・松本がTelegramからKURODOに報告・指示
+  - 自動で議事録作成 → git push
+- Claude Code + Remote Control（tmux: devセッション）
+  - 松本がClaudeアプリから本格開発指示
+- Claude Desktop（Cowork + Dispatch）
+  - テラスがClaudeアプリから資料作成・リサーチ
+
+### 連絡手段
+| 用途 | ツール |
+|------|--------|
+| 日常会話（テラス↔松本） | LINE |
+| KURODO/HISHOへの報告・指示 | Telegram Bot |
+| 本格開発（松本） | Claudeアプリ（Remote Control） |
+| 資料作成（テラス） | Claudeアプリ（Dispatch） |
+| 経営判断・戦略相談 | claude.ai の各Project |
