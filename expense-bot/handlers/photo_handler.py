@@ -30,6 +30,10 @@ async def handle_photo(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     # Expenseオブジェクト作成
     expense_id = generate_expense_id()
+
+    # Google Driveに保存
+    from services.drive_service import upload_receipt
+    drive_url = upload_receipt(bytes(image_bytes), expense_id)
     expense = Expense(
         expense_id=expense_id,
         date=result.get("date", ""),
@@ -42,7 +46,7 @@ async def handle_photo(update: Update, context: ContextTypes.DEFAULT_TYPE):
         business_name=BUSINESSES.get(result.get("business_number", "0"), "全社"),
         memo=result.get("memo", ""),
         registration_method="photo",
-        image_file_id=photo.file_id,
+        image_file_id=drive_url if drive_url else photo.file_id,
     )
 
     # Google Sheetsに登録
@@ -54,5 +58,11 @@ async def handle_photo(update: Update, context: ContextTypes.DEFAULT_TYPE):
     # 今月累計を取得
     monthly_total = get_monthly_total()
 
+    # 予算アラートチェック
+    from services.budget_service import check_budget
+    budget = check_budget()
+
     # 確認メッセージを送信
     await update.message.reply_text(expense.to_confirmation_message(monthly_total))
+    if budget["alerts"]:
+        await update.message.reply_text("\n".join(budget["alerts"]))

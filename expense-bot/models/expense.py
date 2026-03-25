@@ -59,5 +59,8 @@ class Expense:
             "━━━━━━━━━━\n"
         )
         if monthly_total > 0:
-            msg += f"今月累計: ¥{monthly_total:,}"
+            from config import TOTAL_MONTHLY_BUDGET
+            r = monthly_total / TOTAL_MONTHLY_BUDGET * 100 if TOTAL_MONTHLY_BUDGET > 0 else 0
+            rem = max(0, TOTAL_MONTHLY_BUDGET - monthly_total)
+            msg += f"今月累計:¥{monthly_total:,}({r:.0f}%) 残:¥{rem:,}"
         return msg

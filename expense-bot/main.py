@@ -1,3 +1,4 @@
+import asyncio
 import logging
 from telegram.ext import ApplicationBuilder, MessageHandler, CommandHandler, filters
 from config import TELEGRAM_BOT_TOKEN
@@ -12,7 +13,7 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 
-def main():
+async def main():
     """ボット起動"""
     app = ApplicationBuilder().token(TELEGRAM_BOT_TOKEN).build()
 
@@ -23,7 +24,10 @@ def main():
     app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_text))
 
     logger.info("経費ボット起動")
-    app.run_polling(drop_pending_updates=True)
+    async with app:
+        await app.updater.start_polling(drop_pending_updates=True)
+        await app.start()
+        await asyncio.Event().wait()
 
 
 async def help_command(update, context):
@@ -47,4 +51,4 @@ async def help_command(update, context):
 
 
 if __name__ == "__main__":
-    main()
+    asyncio.run(main())

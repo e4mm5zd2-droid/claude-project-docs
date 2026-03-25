@@ -105,6 +105,12 @@ async def parse_text_expense(update: Update, text: str):
     monthly_total = get_monthly_total()
     await update.message.reply_text(expense.to_confirmation_message(monthly_total))
 
+    # 予算アラートチェック
+    from services.budget_service import check_budget
+    budget = check_budget()
+    if budget["alerts"]:
+        await update.message.reply_text("\n".join(budget["alerts"]))
+
 
 async def handle_correction(update: Update, context: ContextTypes.DEFAULT_TYPE, text: str):
     """修正フロー：1:日付 2:金額 3:店名 4:科目 5:事業"""

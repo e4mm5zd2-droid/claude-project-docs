@@ -98,8 +98,19 @@ def get_monthly_summary(year_month: str = None) -> dict:
             cat_name = f"{row[5]}:{row[6]}"
             by_category[cat_name] = by_category.get(cat_name, 0) + amount
 
+    by_business_raw = {}
+    for row in all_values[1:]:
+        if row[1].startswith(year_month) and row[13] != "cancelled":
+            try:
+                amount = int(row[2])
+            except (ValueError, IndexError):
+                continue
+            biz_num = row[7]
+            by_business_raw[biz_num] = by_business_raw.get(biz_num, 0) + amount
+
     return {
         "total": total,
         "by_business": dict(sorted(by_business.items())),
+        "by_business_raw": by_business_raw,
         "by_category": dict(sorted(by_category.items(), key=lambda x: -x[1])),
     }

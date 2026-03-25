@@ -43,3 +43,11 @@ BUSINESSES = {
     "3": "求人",
     "4": "CRM",
 }
+
+# 予算設定（暫定値・BUDGET_ALERT_ENABLEDをTrueにすると有効化）
+BUDGET_ALERT_ENABLED = False
+MONTHLY_BUDGETS = {
+    "0": 50000, "1": 30000, "2": 50000, "3": 250000, "4": 20000,
+}
+TOTAL_MONTHLY_BUDGET = 400000
+ALERT_THRESHOLD = 0.8
