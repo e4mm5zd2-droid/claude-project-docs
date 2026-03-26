@@ -1,5 +1,7 @@
 # 🧠 Intelligence Index
 
+- **[2026-03-26](intelligence/daily/2026-03-26_0005.md)** — 18件 — 害虫駆除業界SaaS構築のため現場技術者として勤務 / ProofShot - AIコーディングエージェント向けUIテストCLIツール / AIエージェント向けStack Overflow「Cq」
+
 - **[2026-03-25](intelligence/daily/2026-03-25_1805.md)** — 12件 — ペスト駆除縦型SaaS開発のため技術者として現場体験 / Gemini動画埋込技術で準リアルタイム動画検索 / ProofShot - AIコーディングエージェントにUI検証機能を追加するOSSツール
 
 - **[2026-03-25](intelligence/daily/2026-03-25_1205.md)** — 17件 — 業界特化SaaS開発のため害虫駆除技術者になった起業家 / DuckDB用ベクトル検索拡張機能の実装 / Gemini動画検索：自然言語で動画検索するCLI
