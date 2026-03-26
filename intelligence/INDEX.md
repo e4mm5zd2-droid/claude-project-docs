@@ -1,5 +1,7 @@
 # 🧠 Intelligence Index
 
+- **[2026-03-26](intelligence/daily/2026-03-26_0605.md)** — 15件 — 害虫駆除業界向けSaaS開発のため技術者として現場体験 / ProofShot：AIコーディングエージェント用UI検証ツール / Gemini動画埋め込み技術でサブ秒動画検索
+
 - **[2026-03-26](intelligence/daily/2026-03-26_0005.md)** — 18件 — 害虫駆除業界SaaS構築のため現場技術者として勤務 / ProofShot - AIコーディングエージェント向けUIテストCLIツール / AIエージェント向けStack Overflow「Cq」
 
 - **[2026-03-25](intelligence/daily/2026-03-25_1805.md)** — 12件 — ペスト駆除縦型SaaS開発のため技術者として現場体験 / Gemini動画埋込技術で準リアルタイム動画検索 / ProofShot - AIコーディングエージェントにUI検証機能を追加するOSSツール
