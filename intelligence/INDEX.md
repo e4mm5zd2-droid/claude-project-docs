@@ -1,5 +1,7 @@
 # 🧠 Intelligence Index
 
+- **[2026-03-27](intelligence/daily/2026-03-27_0005.md)** — 14件 — Optio - K8s上でAIコーディングエージェントを編成するツール / ProofShot：AIエージェントにUI検証機能を付与するCLIツール / S3対応SQLite VFS「Turbolite」
+
 - **[2026-03-26](intelligence/daily/2026-03-26_1805.md)** — 16件 — OptiaoによるAIエージェント開発オーケストレーション / Claude用プレーンテキスト認知アーキテクチャ / LLMベースのWebスクレイピングライブラリが公開
 
 - **[2026-03-26](intelligence/daily/2026-03-26_1205.md)** — 11件 — 害虫駆除業界のSaaS開発のため技術者として現場で働いた事例 / OptioによるAIエージェント開発自動化 / ProofShot - AIエージェントにUI検証機能を提供するCLIツール
