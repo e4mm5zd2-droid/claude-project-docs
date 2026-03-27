@@ -1,5 +1,7 @@
 # 🧠 Intelligence Index
 
+- **[2026-03-27](intelligence/daily/2026-03-27_0604.md)** — 15件 — AIでJSONataを一日で書き換え、年間50万ドル削減 / AI開発エージェント向けUI検証ツールProofShot / Cq - AIエージェント向けStack Overflow
+
 - **[2026-03-27](intelligence/daily/2026-03-27_0005.md)** — 14件 — Optio - K8s上でAIコーディングエージェントを編成するツール / ProofShot：AIエージェントにUI検証機能を付与するCLIツール / S3対応SQLite VFS「Turbolite」
 
 - **[2026-03-26](intelligence/daily/2026-03-26_1805.md)** — 16件 — OptiaoによるAIエージェント開発オーケストレーション / Claude用プレーンテキスト認知アーキテクチャ / LLMベースのWebスクレイピングライブラリが公開
