@@ -1,5 +1,7 @@
 # 🧠 Intelligence Index
 
+- **[2026-03-27](intelligence/daily/2026-03-27_1205.md)** — 15件 — 月7ドルVPSでAIエージェント運用、IRC活用で超軽量実装 / LLM活用Webスクレイピングライブラリが公開 / S3対応SQLite VFS「Turbolite」- サブ秒クエリ実現
+
 - **[2026-03-27](intelligence/daily/2026-03-27_0604.md)** — 15件 — AIでJSONataを一日で書き換え、年間50万ドル削減 / AI開発エージェント向けUI検証ツールProofShot / Cq - AIエージェント向けStack Overflow
 
 - **[2026-03-27](intelligence/daily/2026-03-27_0005.md)** — 14件 — Optio - K8s上でAIコーディングエージェントを編成するツール / ProofShot：AIエージェントにUI検証機能を付与するCLIツール / S3対応SQLite VFS「Turbolite」
