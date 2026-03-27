@@ -1,5 +1,7 @@
 # 🧠 Intelligence Index
 
+- **[2026-03-27](intelligence/daily/2026-03-27_1805.md)** — 11件 — LLM活用Webスクレイピングライブラリが公開 / ProofShot - AIエージェントに視覚的UI検証機能を追加するCLIツール / 200モデル同時討論ツール：AI意思決定支援サービス
+
 - **[2026-03-27](intelligence/daily/2026-03-27_1205.md)** — 15件 — 月7ドルVPSでAIエージェント運用、IRC活用で超軽量実装 / LLM活用Webスクレイピングライブラリが公開 / S3対応SQLite VFS「Turbolite」- サブ秒クエリ実現
 
 - **[2026-03-27](intelligence/daily/2026-03-27_0604.md)** — 15件 — AIでJSONataを一日で書き換え、年間50万ドル削減 / AI開発エージェント向けUI検証ツールProofShot / Cq - AIエージェント向けStack Overflow
