@@ -1,5 +1,7 @@
 # 🧠 Intelligence Index
 
+- **[2026-03-28](intelligence/daily/2026-03-28_0605.md)** — 13件 — 月7ドルVPS上でAIエージェント運用システム / S3対応SQLite VFS「Turbolite」 / チケットからPRまで自動化するAIコーディングエージェント
+
 - **[2026-03-28](intelligence/daily/2026-03-28_0005.md)** — 14件 — AI開発チーム自動化ツール「Optio」 / 月額$7のVPSでAIエージェントを運用する低コスト実装例 / Claude向けプレーンテキスト認知アーキテクチャ
 
 - **[2026-03-27](intelligence/daily/2026-03-27_1805.md)** — 11件 — LLM活用Webスクレイピングライブラリが公開 / ProofShot - AIエージェントに視覚的UI検証機能を追加するCLIツール / 200モデル同時討論ツール：AI意思決定支援サービス
