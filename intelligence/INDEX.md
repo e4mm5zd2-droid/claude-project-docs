@@ -1,5 +1,7 @@
 # 🧠 Intelligence Index
 
+- **[2026-03-28](intelligence/daily/2026-03-28_1805.md)** — 13件 — S3からSQLite高速クエリを実現するTurbolite / 月7ドルVPSとIRCで構築した超軽量AIエージェント / Optio：K8sでAIコーディング代行の完全自動化
+
 - **[2026-03-28](intelligence/daily/2026-03-28_1204.md)** — 11件 — 月700円AIエージェント運営術 / Optio：K8sでAIコーディングエージェント自動化 / AIエージェント用UI検証ツールProofShot
 
 - **[2026-03-28](intelligence/daily/2026-03-28_0605.md)** — 13件 — 月7ドルVPS上でAIエージェント運用システム / S3対応SQLite VFS「Turbolite」 / チケットからPRまで自動化するAIコーディングエージェント
