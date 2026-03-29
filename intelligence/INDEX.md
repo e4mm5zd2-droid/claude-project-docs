@@ -1,5 +1,7 @@
 # 🧠 Intelligence Index
 
+- **[2026-03-29](intelligence/daily/2026-03-29_1205.md)** — 14件 — ProofShot: AIコーディングエージェント用UI検証ツール / LLM活用Webスクレイピングライブラリ / 月額$7でAIエージェントをIRC経由で運用する実装例
+
 - **[2026-03-29](intelligence/daily/2026-03-29_0605.md)** — 12件 — AIエージェントにUI検証の視覚機能を提供するProofShot / TurboliteでS3から250ms以下でSQLite冷間クエリ実行 / 月980円でAIエージェント運用の超軽量アーキテクチャ
 
 - **[2026-03-29](intelligence/daily/2026-03-29_0005.md)** — 11件 — LLMを使ったWebデータ抽出ライブラリの実装事例 / S3対応SQLite VFS「Turbolite」 / 月7$でAIエージェントをVPS展開、IRC活用の低コスト構成
