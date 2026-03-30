@@ -1,5 +1,7 @@
 # 🧠 Intelligence Index
 
+- **[2026-03-30](intelligence/daily/2026-03-30_1204.md)** — 17件 — QuickBEAM - JS実行環境のErlang統合 / 月1000円以下で運用可能なAIエージェント実装事例 / AI開発エージェントのオーケストレーション
+
 - **[2026-03-30](intelligence/daily/2026-03-30_0606.md)** — 15件 — 月額$7でAIエージェントを運用する超低コスト実装 / TurboliteでS3からSQLiteを高速化 / チケットからPRまでの自動化ツールOptio
 
 - **[2026-03-30](intelligence/daily/2026-03-30_0005.md)** — 18件 — Turbolite - S3上でSQLiteを250ms未満で実行するVFS / 月1000円でAIエージェントを運用する超軽量システム / AI開発エージェント自動化ツール「Optio」
