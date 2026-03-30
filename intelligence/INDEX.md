@@ -1,5 +1,7 @@
 # 🧠 Intelligence Index
 
+- **[2026-03-30](intelligence/daily/2026-03-30_0005.md)** — 18件 — Turbolite - S3上でSQLiteを250ms未満で実行するVFS / 月1000円でAIエージェントを運用する超軽量システム / AI開発エージェント自動化ツール「Optio」
+
 - **[2026-03-29](intelligence/daily/2026-03-29_1805.md)** — 14件 — AIエージェント用UI検証ツール ProofShot / S3上で250ms以下のSQLite冷間クエリを実現するVFS / $7VPSでAIエージェントをIRC経由で運用
 
 - **[2026-03-29](intelligence/daily/2026-03-29_1205.md)** — 14件 — ProofShot: AIコーディングエージェント用UI検証ツール / LLM活用Webスクレイピングライブラリ / 月額$7でAIエージェントをIRC経由で運用する実装例
