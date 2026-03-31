@@ -1,5 +1,7 @@
 # 🧠 Intelligence Index
 
+- **[2026-03-31](intelligence/daily/2026-03-31_1206.md)** — 4件 — DeFi専用AIエージェント開発事例 / AIエージェントが経済活動の直接参加者になる未来 / Claude Codeソースコード流出でセキュリティ課題顕在化
+
 - **[2026-03-31](intelligence/daily/2026-03-31_0607.md)** — 8件 — MCPサーバー開発：Claude活用の敵対的レビュー手法 / Claude出力トークン削減ツール / Raincast - 説明だけでネイティブデスクトップアプリ生成
 
 - **[2026-03-31](intelligence/daily/2026-03-31_0007.md)** — 10件 — AIスタートアップ向け7つの実践的集客戦略 / AnthropicのMythosモデル：高価格AI時代の到来 / ゼロセットアップAIエージェントプラットフォームの競合分析
