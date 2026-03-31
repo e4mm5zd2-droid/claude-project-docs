@@ -1,5 +1,7 @@
 # 🧠 Intelligence Index
 
+- **[2026-03-31](intelligence/daily/2026-03-31_0607.md)** — 8件 — MCPサーバー開発：Claude活用の敵対的レビュー手法 / Claude出力トークン削減ツール / Raincast - 説明だけでネイティブデスクトップアプリ生成
+
 - **[2026-03-31](intelligence/daily/2026-03-31_0007.md)** — 10件 — AIスタートアップ向け7つの実践的集客戦略 / AnthropicのMythosモデル：高価格AI時代の到来 / ゼロセットアップAIエージェントプラットフォームの競合分析
 
 - **[2026-03-30](intelligence/daily/2026-03-30_1808.md)** — 18件 — Superagentが130+のプリビルドスキルをリリース / VC投資家がRustで構築したAI自動化システム / Base44：6ヶ月で8000万ドル買収からAIエージェントスキルシステム展開
