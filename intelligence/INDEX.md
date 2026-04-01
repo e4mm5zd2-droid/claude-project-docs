@@ -1,5 +1,7 @@
 # 🧠 Intelligence Index
 
+- **[2026-04-01](intelligence/daily/2026-04-01_0609.md)** — 9件 — B2Bデモは資料からAIエージェントのライブデモへ / ソロ創業者が4つのAIエージェントで月収5万ドル達成 / Claude Code Unpackedビジュアルガイド
+
 - **[2026-04-01](intelligence/daily/2026-04-01_0011.md)** — 26件 — Anthropic内部利用のプロンプトテンプレートリーク / Sequoia：AIエージェントが1兆ドル規模のサービス市場を代替 / Notion元CMO、AI時代のマーケティング戦略
 
 - **[2026-03-31](intelligence/daily/2026-03-31_1810.md)** — 13件 — QodoAI：コードレビュー特化マルチエージェントシステム / カスタムAIモデル自動開発プラットフォーム「VibeML」 / Cohere音声認識サービス「Transcribe」リリース
