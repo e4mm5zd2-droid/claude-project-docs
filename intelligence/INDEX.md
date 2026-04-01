@@ -1,5 +1,7 @@
 # 🧠 Intelligence Index
 
+- **[2026-04-01](intelligence/daily/2026-04-01_1211.md)** — 26件 — Claude活用の科学的手法17論文分析結果 / SaaS起業家の透明な収益データと学び / Claude Code源流のマルチエージェントフレームワーク
+
 - **[2026-04-01](intelligence/daily/2026-04-01_0609.md)** — 9件 — B2Bデモは資料からAIエージェントのライブデモへ / ソロ創業者が4つのAIエージェントで月収5万ドル達成 / Claude Code Unpackedビジュアルガイド
 
 - **[2026-04-01](intelligence/daily/2026-04-01_0011.md)** — 26件 — Anthropic内部利用のプロンプトテンプレートリーク / Sequoia：AIエージェントが1兆ドル規模のサービス市場を代替 / Notion元CMO、AI時代のマーケティング戦略
