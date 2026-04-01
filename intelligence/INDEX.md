@@ -1,5 +1,7 @@
 # 🧠 Intelligence Index
 
+- **[2026-04-01](intelligence/daily/2026-04-01_0011.md)** — 26件 — Anthropic内部利用のプロンプトテンプレートリーク / Sequoia：AIエージェントが1兆ドル規模のサービス市場を代替 / Notion元CMO、AI時代のマーケティング戦略
+
 - **[2026-03-31](intelligence/daily/2026-03-31_1810.md)** — 13件 — QodoAI：コードレビュー特化マルチエージェントシステム / カスタムAIモデル自動開発プラットフォーム「VibeML」 / Cohere音声認識サービス「Transcribe」リリース
 
 - **[2026-03-31](intelligence/daily/2026-03-31_1543.md)** — 39件 — B2B SaaS企業のAIカスタマーサポート成功事例 / Etsy自動運営SaaS：$50K投資の収益化戦略 / 開発者のマーケティング実録：3ヶ月で2000ユーザー獲得の詳細分析
