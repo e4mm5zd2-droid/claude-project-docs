@@ -1,0 +1,25 @@
+# .claudeignore - Claude Codeのコンテキストから除外
+
+# ビルド成果物
+__pycache__/
+*.pyc
+
+# ログ・データ
+logs/
+*.log
+
+# 環境・シークレット
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+service_account.json
+
+# IDE
+.idea/
+.vscode/
+*.swp
+
+# Git
+.git/
