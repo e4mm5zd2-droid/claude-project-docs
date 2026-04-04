@@ -2,7 +2,7 @@
 
 > X (Twitter) 動画・メディアの自動転載ボット。yt-dlp + tweepy で動画取得→投稿
 
-*最終更新: 2026-03-09 22:18*
+*最終更新: 2026-04-04 14:44*
 
 **パス**: `/Users/apple/Projects/business2-x-tools/x-video-bot`
 **ブランチ**: `master`

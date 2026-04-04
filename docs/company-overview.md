@@ -1,6 +1,6 @@
 # On The Edge - サービス全体概要
 
-*最終更新: 2026-03-09 22:18*
+*最終更新: 2026-04-04 14:44*
 
 ---
 ## 会社・ビジネス情報
@@ -66,6 +66,99 @@
 - [ ] メタ広告の運用を強化する方針を具体化する（担当: かおりちゃん）
 - [ ] 4〜5月に物販スクールのコラボ打ち合わせを実施（担当: かおりちゃん）
 
+### 20260404_4-4 バラのお姉さん_small.md
+
+# ミーティングメモ: ビジネス戦略・AI活用・SNS運用に関する打ち合わせ
+*日時: 2026-04-04*
+*音声ファイル: 4-4 バラのお姉さん_small.m4a*
+
+## 要約
+輸入物販を主軸に複数のビジネスを展開するかおりさんと、AI・SNS自動化システムを開発中の相手方が事業内容を相互に紹介し合った。為替悪化による物販利益率の低下を背景に、女性専用物販スクール立ち上げやビジネスコンサル・コンテンツ販売へのシフトが議論された。AI活用・X（旧Twitter）運用・CRM導入の可能性について検討し、相手方がかおりさん向けのX運用提案をまとめ直すことになった。
+
+---
+
+## 議題
+
+### 1. かおりさんの現在のビジネス構成
+- メイン収入は輸入物販（タンブラー等のデザイン商品をヨドバシカメラ等に展開）
+- 為替悪化により売上は右肩上がりでも利益率が著しく低下、輸入物販の旨みが減少
+- サブ事業として、ビジネスコンサル・コンテンツ販売（ノウハウ販売）の比重を昨年から拡大中
+- 集客はInstagramがメイン（女性ターゲットのためInstagramが最適と判断）
+- 顧客管理はLINE公式＋プロライン（Lステップ/エルメ相当）で運用
+- Facebookの女性専用ビジネスコミュニティにも所属・活動中
+- ノートで匿名の美容アカウントも運用（注力度は低め）
+
+### 2. 今後の新規プロジェクト（女性専用物販スクール）
+- 昨日（4/3）東京でプロモーターと打ち合わせ済み
+- プロモーター主導で女性専用の輸出物販スクールを8月ローンチ予定
+- 2ヶ月かけてプロモーション実施予定（第一期のため規模感は未定）
+- 差別化軸として「初心者でもAIを使えば販売ページ等を作れる」を訴求する方向
+- AIに詳しい知人を講師として1日だけ招くことも検討中
+- 手前のフロントエンドとして「人生ワープセミナー」を来週開催予定（手帳講座へ誘導）
+
+### 3. かおりさんのAI活用現状
+- ChatGPT（通称「チャッピー」）を壁打ち・アイデア出しに日常的に活用
+- 活用例：競合分析、LP・告知文のブラッシュアップ、セミナーシナリオのネガティブ洗い出しなど
+- コンテンツ生成よりも「思考の補助・戦略立案」での活用が中心
+- 業務改善・効率化ツールとしての使い方は実践できているが、マネタイズへの接続は発展途上
+
+### 4. 相手方のAI・SNS自動化システムの紹介
+- X（旧Twitter）上の海外AIアカウントをAIで自動監視し、最新トレンドをいち早くキャッチするシステムを開発・運用中
+- ショート動画（10〜15秒）で「いいねボタン以外を押させる」インタラクティブ動画を生成するシステムを開発済み（アルゴリズム優位化が目的）
+- インスタリール・TikTok・YouTubeショート対応のテンプレートで短時間制作が可能
+- 金融リテラシーが高いユーザー向けのXアカウントを複数運用し、濃度の高い情報を自動投稿する仕組みを構築中
+- 株・暗号通貨のリサーチ・スコアリングシステム（独自AI搭載）も実験段階で稼働中（販売目的ではなく内部利用）
+- バロン・トランプ等の著名人のブロックチェーンウォレット動向の監視も実施
+- Mac miniを365日稼働させてシステムを常時運用中
+
+### 5. CRM・顧客管理ツールの必要性
+- 現状は数十人規模のためCRMの必要性を感じていなかった
+- 物販スクール立ち上げ後にリスト規模が拡大する見込みのため、今後は管理強化が必要と認識
+- Lステップ・エルメは数週間前からLINE公式のAI機能強化により不要になりつつある、との情報共有あり
+- CRMは3〜5万円程度で構築可能との提案あり
+
+### 6. かおりさんのSNS戦略・ターゲット設定
+- Instagramは女性向けに顔出しアカウントを1本運用、複数アカウントは仕込み中
+- X・Threadsは未運用（女性ターゲットのためInstagramが優先と判断してきた）
+- ライフスタイル発信（シングルマザー・海外渡航・教育投資・美容）が反響を得ており、そこからビジネス・美容商品への誘導が機能しはじめている
+- 子育て・教育・美容・ライフスタイルなど複数テーマでコンテンツ・商品を保有
+
+### 7. かおりさんへのX運用提案
+- 相手方より、かおりさんにXアカウント運用を勧める提案
+- 美容・ライフスタイル・子育て等の女性向けテーマで複数アカウントを作成し、相互リツイートで相乗効果を狙う設計を検討
+- Xはボリューム・収益化・情報拡散の観点でインスタより優位な面があると説明
+- AIによる自動投稿と、かおりさん自身の発信を組み合わせる運用モデルを提案予定
+- かおりさんは「Xは男性・リテラシー高い層向け」という認識を持っているが、女性ユーザーへの有効性も説明され関心を持った様子
+
+### 8. 日本経済・社会課題への思い（かおりさんの活動理念）
+- 「日本人女性の平均所得底上げのお手伝いをしたい」をキャッチコピーとして活動
+- 少子化・優秀な人材の海外流出・外資による日本への資本流入を懸念
+- 女性が稼ぐことで消費が増え、経済が回るという考え方を持つ
+- 相手方のシステムを活用した民意形成・地方政治への波及効果についても議論（相互認識として可能性はあるが責任範囲・リスク管理が課題）
+
+### 9. AIセミナー・業界動向
+- 来月末（5月末）、かわしま塾でAIスクールを運営している人物と会う予定
+- そこで現在のAIセミナー業界のトレンドや内容を調査する意向
+- 相手方の見解：現在流通しているAIセミナーは「プロンプト活用・業務効率化」レベルにとどまっており、自分たちが開発・運用しているシステムとは大きな差がある
+
+---
+
+## 決定事項
+- [ ] 相手方がかおりさん向けのX運用提案を具体的にまとめ直す
+- [ ] かおりさんは来月末のかわしま塾AIセミナー関係者との会食に参加し、業界動向を調査する
+- [ ] 女性専用物販スクールは8月ローンチを目標に、2ヶ月のプロモーション計画を進める
+- [ ] 来週、「人生ワープセミナー」を開催する（手帳講座へのフロントエンド）
+
+---
+
+## 今後のアクション
+- [ ] X運用の具体的提案資料を作成・共有する（担当: 相手方）
+- [ ] かわしま塾AI関係者との会食に参加し、AI講座連携の可能性を探る（担当: かおりさん）
+- [ ] 物販スクールへのAI活用要素（販売ページ自動生成等）の組み込みを検討する（担当: かおりさん・AI知人講師候補）
+- [ ] CRM導入の必要性について、物販スクール規模感が明確になった段階で再検討する（担当: かおりさん）
+- [ ] かおりさんのビジネス・ライフスタイル発信を活用したXアカウント設計案を作成する（担当: 相手方）
+- [ ] 来週のセミナー後、LINEで状況を共有・連絡を取り合う（担当: 両者）
+
 ---
 ## サービス一覧
 
@@ -88,19 +181,127 @@
 # ===========================================
 # Render デプロイ設定ファイル
 # ===========================================
-# 削除済みサービス（コードはGitHubに残存）:
-#   - x-auto-bot-web (web/app.py) - 顧客管理Web画面
-#   - x-auto-bot-db (PostgreSQL) - 顧客トークンDB
-#   - crypto-monitor-bot (crypto_bot/cron_monitor_bot.py) - Discord通知Bot
+
+databases:
+  - name: x-auto-bot-db
+    plan: free
+    databaseName: x_auto_bot
+    user: x_auto_bot_user
 
 services:
-  # 自動引用投稿ボット（2時間ごと、最大4件）
-  # 監視: X API v2 search_recent_tweets（正確なツイートID/テキスト取得）
+  # ========================================
+  # Web管理画面（Flask）
+  # ========================================
+  - type: web
+    name: x-auto-bot-web
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn web.app:app --bind 0.0.0.0:$PORT --workers 2
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.11.0"
+      - key: FLASK_ENV
+        value: production
+      - key: DEBUG
+        value: "false"
+      - key: DATABASE_URL
+        fromDatabase:
+          name: x-auto-bot-db
+          property: connectionString
+      - key: FLASK_SECRET_KEY
+        generateValue: true
+      - key: ANTHROPIC_API_KEY
+        sync: false
+      - key: X_CLIENT_ID
+        sync: false
+      - key: X_CLIENT_SECRET
+        sync: false
+      - key: X_REDIRECT_URI
+        sync: false
+      - key: X_API_KEY
+        sync: false
+      - key: X_API_SECRET
+        sync: false
+      - key: X_ACCESS_TOKEN
+        sync: false
+      - key: X_ACCESS_TOKEN_SECRET
+        sync: false
+
+  # ═══════════════════════════════════════
+  # 統合投稿オーケストレーター（3時間毎）
+  # 全botの候補を収集→レートリミット→1件投稿
+  # 1日最大6件（ウォームアップ中は2件）
+  # ═══════════════════════════════════════
+  - type: cron
+    name: post-scheduler
+    runtime: python
+    plan: starter
+    schedule: "0 */3 * * *"
+    buildCommand: pip install -r requirements.txt
+    startCommand: PYTHONPATH=/opt/render/project/src python3 crypto_bot/post_scheduler.py
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.11.0"
+      - key: DATABASE_URL
+        fromDatabase:
+          name: x-auto-bot-db
+          property: connectionString
+      # Claude API
+      - key: ANTHROPIC_API_KEY
+        sync: false
+      # X API認証
+      - key: X_CONSUMER_KEY
+        sync: false
+      - key: X_CONSUMER_SECRET
+        sync: false
+      - key: X_ACCESS_TOKEN
+        sync: false
+      - key: X_ACCESS_TOKEN_SECRET
+        sync: false
+      # X API読み取り
+      - key: X_BEARER_TOKEN
+        sync: false
+      # アフィリエイト
+      - key: LINKTREE_URL
+        sync: false
+      # ═══ 投稿制限設定（環境変数で調整可能）═══
+      - key: MAX_DAILY_POSTS
+        value: "6"
+      - key: MAX_DAILY_QUOTE_RTS
+        value: "4"
+      - key: MIN_DAILY_ORIGINALS
+        value: "2"
+      - key: MIN_INTERVAL_MINUTES
+        value: "90"
+      # ═══ スレッド・出力先設定 ═══
+      - key: THREAD_MODE
+        value: "thread"
+      - key: OUTPUT_MODE
+        value: "direct"
+      - key: TYPEFULLY_API_KEY
+        sync: false
+      - key: TYPEFULLY_SOCIAL_SET_ID
+        sync: false
+      # ═══ ウォームアップ設定 ═══
+      # 凍結解除後2週間はtrue。安定したらfalseに変更。
+      - key: WARMUP_ENABLED
+        value: "true"
+      - key: WARMUP_MAX_DAILY_POSTS
+        value: "2"
+      - key: WARMUP_MAX_DAILY_QUOTE_RTS
+        value: "1"
+      - key: WARMUP_MIN_INTERVAL_MINUTES
+        value: "180"
+
+  # ========================================
+  # 旧Cron Job（デプロイ後に手動でSuspendすること）
+  # ========================================
   - type: cron
     name: crypto-auto-quote-bot
     runtime: python
     plan: starter
-    schedule: "0 */2 * * *"  # 2時間ごとに実行
+    schedule: "0 */2 * * *"
     buildCommand: pip install -r requirements.txt
     startCommand: python3 crypto_bot/auto_quote_monitor.py --limit 4
     envVars:
@@ -118,13 +319,20 @@ services:
         sync: false
       - key: X_ACCESS_TOKEN_SECRET
         sync: false
+      - key: DATABASE_URL
+        fromDatabase:
+          name: x-auto-bot-db
+          property: connectionString
+      - key: DISCORD_WEBHOOK_URL
+        sync: false
+      - key: QUALITY_GATE_MODE
+        value: "dry_run"
 
-  # SOU_BTC 監視(X API) → リライト(Claude) → 投稿(X API)
   - type: cron
     name: sou-btc-inspire-cron
     runtime: python
     plan: starter
-    schedule: "*/15 * * * *"  # 15分ごとに実行
+    schedule: "*/15 * * * *"
     buildCommand: pip install -r requirements.txt
     startCommand: python3 crypto_bot/sou_btc_inspire_monitor.py --limit 1
     envVars:
@@ -142,14 +350,20 @@ services:
         sync: false
       - key: X_ACCESS_TOKEN_SECRET
         sync: false
+      - key: DATABASE_URL
+        fromDatabase:
+          name: x-auto-bot-db
+          property: connectionString
+      - key: DISCORD_WEBHOOK_URL
+        sync: false
+      - key: QUALITY_GATE_MODE
+        value: "dry_run"
 
-  # Triaアフィリエイトボット（1時間ごと）
-  # 海外CT速報(X API search) → Claude翻訳+Tria訴求 → 引用リポスト → リプライでLinktreeリンク
   - type: cron
     name: affiliate-bot
     runtime: python
     plan: starter
-    schedule: "30 * * * *"
+    schedule: "30 */3 * * *"
     buildCommand: pip install -r requirements.txt
     startCommand: python3 crypto_bot/affiliate_bot.py
     envVars:
@@ -159,8 +373,6 @@ services:
         sync: false
       - key: ANTHROPIC_API_KEY
         sync: false
-      - key: LINKTREE_URL
-        sync: false
       - key: X_CONSUMER_KEY
         sync: false
       - key: X_CONSUMER_SECRET
@@ -169,11 +381,14 @@ services:
         sync: false
       - key: BOT_B_ACCESS_SECRET
         sync: false
-
-  # SOU_BTC Filtered Stream（無効化済み）
-  # - type: worker
-  #   name: sou-btc-inspire-stream
-  #   ...
+      - key: DATABASE_URL
+        fromDatabase:
+          name: x-auto-bot-db
+          property: connectionString
+      - key: DISCORD_WEBHOOK_URL
+        sync: false
+      - key: QUALITY_GATE_MODE
+        value: "dry_run"
 
 ```
 

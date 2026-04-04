@@ -2,7 +2,7 @@
 
 > X (Twitter) 自動投稿ボット。Claude AIで暗号通貨ニュースを監視・要約し自動投稿
 
-*最終更新: 2026-03-09 22:18*
+*最終更新: 2026-04-04 14:44*
 
 **パス**: `/Users/apple/Projects/business2-x-tools/x-auto-bot`
 **ブランチ**: `main`
@@ -300,12 +300,15 @@ gunicorn>=21.2.0
 SQLAlchemy>=2.0.0
 psycopg2-binary>=2.9.9
 openai>=1.0.0
+janome>=0.5.0
 ```
 
 ---
 ## ディレクトリ構成
 
 ```
+├── .claude/
+│   └── settings.json
 ├── bot/
 │   ├── accounts.json
 │   ├── accounts.json.example
@@ -317,31 +320,48 @@ openai>=1.0.0
 │   ├── README_discord_bot.md
 │   ├── README_monitoring.md
 │   ├── README_quote_tweet.md
+│   ├── __init__.py
 │   ├── affiliate_bot.py
 │   ├── auto_crypto_expert.py
 │   ├── auto_monitor_bot.py
 │   ├── auto_monitoring_bot.py
 │   ├── auto_post_monitor_bot.py
 │   ├── auto_quote_monitor.py
+│   ├── banned_words.txt
 │   ├── com.user.crypto_monitoring_bot.plist
+│   ├── config_limits.py
+│   ├── content_diversifier.py
 │   ├── cron_monitor_bot.py
+│   ├── db.py
 │   ├── discord_notification_bot.py
+│   ├── init_db.py
 │   ├── manual_rewrite_bot.py
+│   ├── models_post.py
+│   ├── original_tweet_generator.py
+│   ├── post_scheduler.py
+│   ├── quality_gate.py
+│   ├── quality_scorer.py
 │   ├── quote_tweet.py
+│   ├── rate_limiter.py
 │   ├── setup_scheduler.sh
 │   ├── simple_manual_bot.py
 │   ├── sou_btc_inspire_monitor.py
-│   └── sou_btc_inspire_stream.py
+│   ├── sou_btc_inspire_stream.py
+│   ├── thread_engine.py
+│   ├── timing_humanizer.py
+│   └── typefully_client.py
 ├── docs/
 │   ├── CLAUDE_PROJECT_SETUP.md
 │   ├── CLOUDFLARE_R2_SETUP.md
 │   ├── DIRECTORY_STRUCTURE.md
 │   ├── RENDER_DEPLOY_GUIDE.md
-│   └── SOU_BTC_STREAM_SETUP.md
+│   ├── SOU_BTC_STREAM_SETUP.md
+│   └── WARMUP_SCHEDULE.md
 ├── scripts/
 │   ├── activate_api.py
 │   ├── auth.py
 │   ├── check_following.py
+│   ├── copy_env_for_render.py
 │   ├── find_crypto_tweet.py
 │   ├── follow_targets.py
 │   ├── get_bot_token.py
@@ -382,19 +402,127 @@ openai>=1.0.0
 # ===========================================
 # Render デプロイ設定ファイル
 # ===========================================
-# 削除済みサービス（コードはGitHubに残存）:
-#   - x-auto-bot-web (web/app.py) - 顧客管理Web画面
-#   - x-auto-bot-db (PostgreSQL) - 顧客トークンDB
-#   - crypto-monitor-bot (crypto_bot/cron_monitor_bot.py) - Discord通知Bot
+
+databases:
+  - name: x-auto-bot-db
+    plan: free
+    databaseName: x_auto_bot
+    user: x_auto_bot_user
 
 services:
-  # 自動引用投稿ボット（2時間ごと、最大4件）
-  # 監視: X API v2 search_recent_tweets（正確なツイートID/テキスト取得）
+  # ========================================
+  # Web管理画面（Flask）
+  # ========================================
+  - type: web
+    name: x-auto-bot-web
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn web.app:app --bind 0.0.0.0:$PORT --workers 2
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.11.0"
+      - key: FLASK_ENV
+        value: production
+      - key: DEBUG
+        value: "false"
+      - key: DATABASE_URL
+        fromDatabase:
+          name: x-auto-bot-db
+          property: connectionString
+      - key: FLASK_SECRET_KEY
+        generateValue: true
+      - key: ANTHROPIC_API_KEY
+        sync: false
+      - key: X_CLIENT_ID
+        sync: false
+      - key: X_CLIENT_SECRET
+        sync: false
+      - key: X_REDIRECT_URI
+        sync: false
+      - key: X_API_KEY
+        sync: false
+      - key: X_API_SECRET
+        sync: false
+      - key: X_ACCESS_TOKEN
+        sync: false
+      - key: X_ACCESS_TOKEN_SECRET
+        sync: false
+
+  # ═══════════════════════════════════════
+  # 統合投稿オーケストレーター（3時間毎）
+  # 全botの候補を収集→レートリミット→1件投稿
+  # 1日最大6件（ウォームアップ中は2件）
+  # ═══════════════════════════════════════
+  - type: cron
+    name: post-scheduler
+    runtime: python
+    plan: starter
+    schedule: "0 */3 * * *"
+    buildCommand: pip install -r requirements.txt
+    startCommand: PYTHONPATH=/opt/render/project/src python3 crypto_bot/post_scheduler.py
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.11.0"
+      - key: DATABASE_URL
+        fromDatabase:
+          name: x-auto-bot-db
+          property: connectionString
+      # Claude API
+      - key: ANTHROPIC_API_KEY
+        sync: false
+      # X API認証
+      - key: X_CONSUMER_KEY
+        sync: false
+      - key: X_CONSUMER_SECRET
+        sync: false
+      - key: X_ACCESS_TOKEN
+        sync: false
+      - key: X_ACCESS_TOKEN_SECRET
+        sync: false
+      # X API読み取り
+      - key: X_BEARER_TOKEN
+        sync: false
+      # アフィリエイト
+      - key: LINKTREE_URL
+        sync: false
+      # ═══ 投稿制限設定（環境変数で調整可能）═══
+      - key: MAX_DAILY_POSTS
+        value: "6"
+      - key: MAX_DAILY_QUOTE_RTS
+        value: "4"
+      - key: MIN_DAILY_ORIGINALS
+        value: "2"
+      - key: MIN_INTERVAL_MINUTES
+        value: "90"
+      # ═══ スレッド・出力先設定 ═══
+      - key: THREAD_MODE
+        value: "thread"
+      - key: OUTPUT_MODE
+        value: "direct"
+      - key: TYPEFULLY_API_KEY
+        sync: false
+      - key: TYPEFULLY_SOCIAL_SET_ID
+        sync: false
+      # ═══ ウォームアップ設定 ═══
+      # 凍結解除後2週間はtrue。安定したらfalseに変更。
+      - key: WARMUP_ENABLED
+        value: "true"
+      - key: WARMUP_MAX_DAILY_POSTS
+        value: "2"
+      - key: WARMUP_MAX_DAILY_QUOTE_RTS
+        value: "1"
+      - key: WARMUP_MIN_INTERVAL_MINUTES
+        value: "180"
+
+  # ========================================
+  # 旧Cron Job（デプロイ後に手動でSuspendすること）
+  # ========================================
   - type: cron
     name: crypto-auto-quote-bot
     runtime: python
     plan: starter
-    schedule: "0 */2 * * *"  # 2時間ごとに実行
+    schedule: "0 */2 * * *"
     buildCommand: pip install -r requirements.txt
     startCommand: python3 crypto_bot/auto_quote_monitor.py --limit 4
     envVars:
@@ -412,13 +540,20 @@ services:
         sync: false
       - key: X_ACCESS_TOKEN_SECRET
         sync: false
+      - key: DATABASE_URL
+        fromDatabase:
+          name: x-auto-bot-db
+          property: connectionString
+      - key: DISCORD_WEBHOOK_URL
+        sync: false
+      - key: QUALITY_GATE_MODE
+        value: "dry_run"
 
-  # SOU_BTC 監視(X API) → リライト(Claude) → 投稿(X API)
   - type: cron
     name: sou-btc-inspire-cron
     runtime: python
     plan: starter
-    schedule: "*/15 * * * *"  # 15分ごとに実行
+    schedule: "*/15 * * * *"
     buildCommand: pip install -r requirements.txt
     startCommand: python3 crypto_bot/sou_btc_inspire_monitor.py --limit 1
     envVars:
@@ -436,14 +571,20 @@ services:
         sync: false
       - key: X_ACCESS_TOKEN_SECRET
         sync: false
+      - key: DATABASE_URL
+        fromDatabase:
+          name: x-auto-bot-db
+          property: connectionString
+      - key: DISCORD_WEBHOOK_URL
+        sync: false
+      - key: QUALITY_GATE_MODE
+        value: "dry_run"
 
-  # Triaアフィリエイトボット（1時間ごと）
-  # 海外CT速報(X API search) → Claude翻訳+Tria訴求 → 引用リポスト → リプライでLinktreeリンク
   - type: cron
     name: affiliate-bot
     runtime: python
     plan: starter
-    schedule: "30 * * * *"
+    schedule: "30 */3 * * *"
     buildCommand: pip install -r requirements.txt
     startCommand: python3 crypto_bot/affiliate_bot.py
     envVars:
@@ -453,8 +594,6 @@ services:
         sync: false
       - key: ANTHROPIC_API_KEY
         sync: false
-      - key: LINKTREE_URL
-        sync: false
       - key: X_CONSUMER_KEY
         sync: false
       - key: X_CONSUMER_SECRET
@@ -463,11 +602,14 @@ services:
         sync: false
       - key: BOT_B_ACCESS_SECRET
         sync: false
-
-  # SOU_BTC Filtered Stream（無効化済み）
-  # - type: worker
-  #   name: sou-btc-inspire-stream
-  #   ...
+      - key: DATABASE_URL
+        fromDatabase:
+          name: x-auto-bot-db
+          property: connectionString
+      - key: DISCORD_WEBHOOK_URL
+        sync: false
+      - key: QUALITY_GATE_MODE
+        value: "dry_run"
 
 ```
 
@@ -1497,7 +1639,14 @@ git push -u origin main
 
 ### 4. 環境変数の設定
 
-Renderの環境変数設定画面で以下を追加:
+**一発コピー用スクリプト**（@crypto_0101010 と同じ値）:
+
+```bash
+python3 scripts/copy_env_for_render.py -c   # クリップボードにコピー
+python3 scripts/copy_env_for_render.py     # ターミナルに表示
+```
+
+Renderの環境変数設定画面で以下を追加（または上記スクリプトの出力を貼り付け）:
 
 ```plaintext
 # Discord通知用
@@ -1684,6 +1833,97 @@ nohup python crypto_bot/sou_btc_inspire_stream.py >> logs/sou_btc_inspire_stream
 - `crypto_bot/sou_btc_inspire_stream.py` - メインスクリプト
 - `data/processed_sou_btc_inspire.txt` - 処理済みツイートID
 - `logs/sou_btc_inspire_stream.log` - ログ
+
+
+### docs/WARMUP_SCHEDULE.md
+
+# ウォームアップスケジュール — 凍結解除後の段階的復帰
+
+## 概要
+
+凍結解除後、いきなり通常運用に戻すと再凍結リスクがある。
+4週間かけて投稿頻度を段階的に上げていく。
+
+**変更場所:** Render Dashboard → `post-scheduler` → Environment
+
+---
+
+## スケジュール
+
+### Week 1（2026/3/14〜3/20）— 現在の設定
+
+| 環境変数 | 値 | 意味 |
+|----------|-----|------|
+| `WARMUP_ENABLED` | `true` | ウォームアップモード有効 |
+| `WARMUP_MAX_DAILY_POSTS` | `2` | 1日最大2件 |
+| `WARMUP_MAX_DAILY_QUOTE_RTS` | `1` | うち引用RTは1件まで |
+| `WARMUP_MIN_INTERVAL_MINUTES` | `180` | 投稿間隔は最低3時間 |
+
+### Week 2（3/21〜3/27）
+
+| 環境変数 | 変更後の値 |
+|----------|-----------|
+| `WARMUP_MAX_DAILY_POSTS` | `3` |
+| `WARMUP_MAX_DAILY_QUOTE_RTS` | `2` |
+| `WARMUP_MIN_INTERVAL_MINUTES` | `180`（変更なし） |
+
+### Week 3（3/28〜4/3）
+
+| 環境変数 | 変更後の値 |
+|----------|-----------|
+| `WARMUP_MAX_DAILY_POSTS` | `4` |
+| `WARMUP_MAX_DAILY_QUOTE_RTS` | `3` |
+| `WARMUP_MIN_INTERVAL_MINUTES` | `120` |
+
+### Week 4（4/4〜）— 通常運用に移行
+
+| 環境変数 | 変更後の値 | 意味 |
+|----------|-----------|------|
+| `WARMUP_ENABLED` | `false` | ウォームアップ終了 |
+
+通常運用では以下の制限が適用される（`config_limits.py` のデフォルト値）:
+- `MAX_DAILY_POSTS` = 6
+- `MAX_DAILY_QUOTE_RTS` = 4
+- `MIN_INTERVAL_MINUTES` = 90
+
+---
+
+## 変更手順（毎週月曜に実施）
+
+1. Render Dashboard → Services → `post-scheduler`
+2. Environment タブを開く
+3. 該当の環境変数を上記の値に変更
+4. 「Save Changes」をクリック
+5. 自動で再デプロイされる（手動トリガー不要）
+
+---
+
+## 異常時の対応
+
+### 投稿後にアカウントに警告が出た場合
+1. `WARMUP_MAX_DAILY_POSTS` を `1` に下げる
+2. `WARMUP_MIN_INTERVAL_MINUTES` を `360`（6時間）に上げる
+3. 1週間様子を見てから再度段階的に上げる
+
+### 再凍結された場合
+1. Render Dashboard → `post-scheduler` を Suspend
+2. 旧Cron Job（3つ）は **絶対にResumeしない**（凍結原因のアーキテクチャに戻さない）
+3. 凍結解除後、`WARMUP_MAX_DAILY_POSTS=1` から再開
+
+---
+
+## 通常運用後のチューニング
+
+通常運用移行後も、以下の環境変数で調整可能:
+
+| 環境変数 | デフォルト | 説明 |
+|----------|-----------|------|
+| `MAX_DAILY_POSTS` | `6` | 1日の最大投稿数 |
+| `MAX_DAILY_QUOTE_RTS` | `4` | 1日の引用RT上限 |
+| `MIN_DAILY_ORIGINALS` | `2` | 1日のオリジナル最低数 |
+| `MIN_INTERVAL_MINUTES` | `90` | 投稿間の最小間隔（分） |
+| `SAME_SOURCE_INTERVAL_HOURS` | `12` | 同一アカウントからの引用間隔（時間） |
+| `SIMILARITY_THRESHOLD` | `0.65` | テキスト類似度の閾値 |
 
 
 ### crypto_bot/QUICKSTART.md
@@ -2373,14 +2613,14 @@ DATABASE_URL=postgresql://user:password@localhost/dbname
 ## 最近の変更 (git log)
 
 ```
+a48d279 feat: スレッド投稿+画像自動添付+Typefully連携
+409c50e docs: ウォームアップスケジュール（Week 1〜4）の手順書を追加
+41b1587 fix: post-scheduler の PYTHONPATH を設定（ModuleNotFoundError修正）
+9fdee23 feat: 凍結防止アーキテクチャ全面再設計 — 統合オーケストレーター導入
+133e127 feat: AI品質監視ゲート統合 — quality_gate.py + 全3ボット組み込み + PostgreSQL復活
+a83a30b fix: affiliate_botのリプライURL廃止＋頻度削減（デブースト対策）
 fef127e refactor: DEVELOPER_ACCESS_TOKEN削除、読み取りをBearer Token専用に簡素化
 c653792 chore: trigger Render deploy
 91ee75a refactor: 全3ボットをGrok x_search → X API v2読み取りに戻す
 084b224 refactor: SOU_BTC監視をSQLite永続化+20分ウィンドウに全面改修
-e3e2dcb fix: sou-btc-inspire-cron を15分間隔に調整
-f9adbff fix: sou-btc-inspire-cron を毎分→毎時に変更（重複投稿防止）
-8d3f667 fix: 全3ボットに重複コンテンツ検出を追加
-80b25a4 fix: Claude断定調の拒否応答パターンを全3ボットに追加
-c0d285f fix: SOU_BTC重複投稿を防止（ソース+生成テキスト類似度チェック）
-fdacf2a fix: 投稿文字数超過時のハードカットをClaude短縮リトライに変更
 ```

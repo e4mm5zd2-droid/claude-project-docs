@@ -2,7 +2,7 @@
 
 > スカウト業務管理アプリ。Next.js フロントエンド + FastAPI バックエンド
 
-*最終更新: 2026-03-09 22:18*
+*最終更新: 2026-04-04 14:44*
 
 **パス**: `/Users/apple/Projects/business3-kyoto-nightwork/nightwork-scout-app`
 **ブランチ**: `main`
@@ -364,6 +364,41 @@ Private - All Rights Reserved
 
 
 ---
+## CLAUDE.md
+
+# SmartNR - ナイトワークスカウトCRM
+
+## コードスタイル
+- Backend: Python 3.11+、FastAPI、Pydantic 2.x、SQLAlchemy 2.0
+- Frontend: Next.js 16、TypeScript、Tailwind CSS v4、shadcn/ui
+- IMPORTANT: Supabase認証を使用。独自認証は実装しない
+
+## ワークフロー
+- Render: backend(FastAPI/uvicorn) + frontend(Next.js) — シンガポールリージョン
+- Supabase: 認証 + PostgreSQL
+- xAI Grok API: 顔分析AI
+- `git push` は手動で行う（自動pushしない）
+
+## アーキテクチャ
+```
+backend/
+  app/main.py       # FastAPIエントリポイント（8ルーター）
+  app/routers/      # CRUD, AI, コミッション, キャスト解析, スカウトリンク等
+frontend/
+  app/              # Next.js App Router
+  components/       # UIコンポーネント（shadcn/ui）
+```
+- ルーター: CRUD API, AI分析, AIマッチング, コミッション/給与, キャスト解析, スカウトリンク, ミニLP, マスター追跡, アクセスログ
+- フロント主要ページ: /casts, /stores, /admin, /schedule, /salary, /concierge, /lp
+
+## 禁止事項
+- IMPORTANT: SUPABASE_KEYをフロントエンドのコードに埋め込まない（NEXT_PUBLIC_SUPABASE_ANON_KEYのみ使用可）
+- IMPORTANT: XAI_API_KEYをハードコードしない
+- .envファイルをgitにコミットしない
+- vercel deployを直接実行しない（Render経由でデプロイ）
+
+
+---
 ## 技術スタック
 
 *(frontend/package.json)*
@@ -451,6 +486,8 @@ Pillow==11.1.0
 ## ディレクトリ構成
 
 ```
+├── .claude/
+│   └── settings.json
 ├── backend/
 │   ├── app/
 │   │   ├── core/
@@ -556,7 +593,9 @@ Pillow==11.1.0
 │   ├── package.json
 │   ├── postcss.config.mjs
 │   └── tsconfig.json
+├── .claudeignore
 ├── .gitignore
+├── CLAUDE.md
 ├── DEPLOYMENT.md
 ├── DEPLOY_RENDER.md
 ├── FINAL_REPORT.md
@@ -4214,6 +4253,7 @@ NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJhbGciOi... (anon public key)
 ## 最近の変更 (git log)
 
 ```
+bc38e0d feat: CLAUDE.md最適化 + .claudeignore導入
 1884b47 refactor: 店舗詳細ページをタブ→縦スクロール1ページに変更
 0e3b152 fix: 店舗詳細のraw_info表示を修正
 a28f7a3 chore: trigger redeploy
@@ -4223,5 +4263,4 @@ f216f7d fix: 4つのバグ修正完了 (AI接続 + PWA白線 + 通知ダミー +
 0186d82 fix: 4つのバグ修正 (店舗マッチングタブ被り + 面接予約リンク追加)
 fbe3519 fix: AI Concierge店舗マッチングタブの画面被り修正
 1ebf286 chore: Render.com再デプロイトリガー (empty commit)
-c36858e fix: 画面下被り問題修正（pb-24 → pb-32）
 ```

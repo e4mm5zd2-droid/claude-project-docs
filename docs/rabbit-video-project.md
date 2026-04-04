@@ -2,7 +2,7 @@
 
 > うさぎショート動画の5アカウント運用。TikTok x3 + YouTube x2、FFmpegバッチ処理、自動アップロード
 
-*最終更新: 2026-03-09 22:18*
+*最終更新: 2026-04-04 14:44*
 
 **パス**: `/Users/apple/Projects/rabbit-video-project`
 **ブランチ**: `master`
