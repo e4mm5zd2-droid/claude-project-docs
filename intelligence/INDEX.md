@@ -1,5 +1,7 @@
 # 🧠 Intelligence Index
 
+- **[2026-04-04](intelligence/daily/2026-04-04_1211.md)** — 14件 — OpenRouter Model Fusion - 複数AIモデル統合ツール / AIセキュリティの本格導入でビジネス機会 / 50倍トークン削減技術の検証と実装可能性
+
 - **[2026-04-04](intelligence/daily/2026-04-04_0608.md)** — 12件 — Claude APIコスト最適化：7つの技術的課題と修正方法 / 旅行ハッキングツールキット：AI活用実装モデル / 技術者創業者の営業課題解決法
 
 - **[2026-04-04](intelligence/daily/2026-04-04_0011.md)** — 25件 — AIエージェント導入後の劇的変化と依存性 / エンジニア不要でAI VP of Customer Success構築 / 大きなアイデアより小さく有用な課題解決から始めるアプローチ
