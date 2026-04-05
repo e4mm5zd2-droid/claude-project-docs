@@ -1,5 +1,7 @@
 # 🧠 Intelligence Index
 
+- **[2026-04-05](intelligence/daily/2026-04-05_1208.md)** — 8件 — Claude料金を80%削減するコスト最適化テクニック / SaaS企業のPMF発見で35万ドル損失の教訓 / Claude統合でUnreal Engine完全制御可能なツール開発
+
 - **[2026-04-05](intelligence/daily/2026-04-05_0609.md)** — 14件 — Claudeを使った12時間自律開発システムの実装事例 / Claude API利用時のトークン消費を12倍削減するツール / README駆動開発でClaude活用
 
 - **[2026-04-05](intelligence/daily/2026-04-05_0008.md)** — 13件 — AIエージェント記憶システムを20ドルで構築、650万ドル調達企業と同等機能を実現 / PixVerse動画生成CLI・API提供開始 / GPU共有サービスsllm：コストを抑えて大規模LLM利用
