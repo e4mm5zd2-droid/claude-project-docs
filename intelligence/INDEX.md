@@ -1,5 +1,7 @@
 # 🧠 Intelligence Index
 
+- **[2026-04-05](intelligence/daily/2026-04-05_0609.md)** — 14件 — Claudeを使った12時間自律開発システムの実装事例 / Claude API利用時のトークン消費を12倍削減するツール / README駆動開発でClaude活用
+
 - **[2026-04-05](intelligence/daily/2026-04-05_0008.md)** — 13件 — AIエージェント記憶システムを20ドルで構築、650万ドル調達企業と同等機能を実現 / PixVerse動画生成CLI・API提供開始 / GPU共有サービスsllm：コストを抑えて大規模LLM利用
 
 - **[2026-04-04](intelligence/daily/2026-04-04_1810.md)** — 21件 — Claude × Obsidianで業務文書管理を自動化 / B2Bソフトウェアの急速な変化とAIエージェント時代 / AI導入で売上1.9倍、必要資本39%削減の実証結果
