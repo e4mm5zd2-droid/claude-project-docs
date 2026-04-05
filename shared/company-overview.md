@@ -217,3 +217,84 @@ Mac mini M4（10コア）24GB を常時稼働AIサーバーとして運用中。
 | 本格開発（松本） | Claudeアプリ（Remote Control） |
 | 資料作成（テラス） | Claudeアプリ（Dispatch） |
 | 経営判断・戦略相談 | claude.ai の各Project |
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+## Render クラウドサービス一覧
+
+*最終確認: 2026-04-06*
+
+### 稼働中サービス
+
+| サービス | 種別 | 事業 | プラン | スケジュール | 概要 |
+|---------|------|------|--------|------------|------|
+| nexus-weekly-scout | Cron Job | 投資 | Starter | 毎週月曜 06:00 JST | NEXUS 週次株式スコアリング |
+| nexus-dashboard | Web Service | 投資 | Starter | 常時 | Streamlitダッシュボード |
+| yt-x-thread-bot | Cron Job | 事業2 | Starter | 1日6回 | YouTube→Xスレッド自動投稿 |
+| x-video-bot | Cron Job | 事業2 | Starter | 毎時 | X動画自動転載 |
+| ai-intel-pipeline | Cron Job | 全社 | Starter | 6時間ごと | ニュース収集→インテリジェンスレポート |
+| ai-intel-weekly-digest | Cron Job | 全社 | Starter | 毎週月曜 | 週次ダイジェスト生成 |
+| crypto-0101010-post-only-bot | Cron Job | 事業2 | Free | 3時間ごと | 暗号通貨自動投稿（12アカウント監視） |
+| toto-prediction-pipeline | Cron Job | 予測 | Starter | 毎週金曜 | toto AI予測実行 |
+| toto-results-pipeline | Cron Job | 予測 | Starter | 毎週月曜 | toto 結果取得・検証 |
+| on-the-edge-corporate-v2 | Static Site | 全社 | Free | — | コーポレートサイト |
+| smartnr-backend | Web Service | 事業4 | Free | 常時 | SmartNR FastAPI（シンガポール） |
+| smartnr-frontend | Web Service | 事業4 | Free | 常時 | SmartNR Next.js（シンガポール） |
+
+### 停止中（Suspended / 削除済み）
+
+| サービス | 状態 | 理由 |
+|---------|------|------|
+| post-scheduler | 削除済み | 2026-04-04 不使用のため削除 |
+| x-auto-bot-web | 削除済み | 2026-04-04 不使用のため削除 |
+| crypto-auto-quote-bot | Suspended | 凍結解除後の整理待ち |
+| sou-btc-inspire-cron | Suspended | 凍結解除後の整理待ち |
+| affiliate-bot | Suspended | 凍結解除後の整理待ち |
+
+### 月額コスト概算
+
+| 区分 | 内訳 | 月額 |
+|------|------|------|
+| Render Starter Cron/Web | ~8サービス × $7 | ~$56 |
+| Render Free tier | Static Site + Web Service | $0 |
+| Supabase (共用) | PostgreSQL + pgvector | $0 (Free) |
+| Anthropic Claude API | NEXUS + NRE + ai-intel | ~$20-50 |
+| xAI Grok API | NRE + SmartNR Vision | ~$5-10 |
+| FMP API (株式データ) | Starter | ~$30 |
+| **合計** | | **~$111-146/月** |
+
+### DB構成
+
+| DB | 用途 | ホスト |
+|----|------|--------|
+| Supabase PostgreSQL | NEXUS, NRE, ai-intel-pipeline | Supabase クラウド |
+| yt-x-thread-bot-db | YT→Xボット | Render Free PostgreSQL |
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+## インフラ全体マップ
+
+```
+┌─────────────────────────────────────────────────────┐
+│  MacBook Air M3 24GB（松本・開発）                      │
+│  ├─ Cursor + Claude Code → 開発・実装                  │
+│  └─ git push → GitHub → Mac mini / Render            │
+├─────────────────────────────────────────────────────┤
+│  Mac mini M4 24GB（常時稼働AIサーバー）                  │
+│  ├─ KURODO / HISHO / テラスBot群（Telegram）           │
+│  ├─ NRE リサーチボット（Telegram）                      │
+│  ├─ 経費Bot（Telegram）                               │
+│  └─ Reels Overlay Tool（Streamlit）                   │
+├─────────────────────────────────────────────────────┤
+│  Render（クラウド）                                     │
+│  ├─ NEXUS（週次株式スコアリング + ダッシュボード）          │
+│  ├─ 事業2 Xツール群（yt-x-thread, x-video, crypto等）  │
+│  ├─ toto予測（週次パイプライン）                         │
+│  ├─ ai-intel-pipeline（6時間ごとニュース収集）            │
+│  ├─ SmartNR（事業4 フロント+バック）                     │
+│  └─ コーポレートサイト（Static）                         │
+├─────────────────────────────────────────────────────┤
+│  Supabase（PostgreSQL + pgvector）                    │
+│  └─ NEXUS / NRE / ai-intel 共用DB                    │
+└─────────────────────────────────────────────────────┘
+```
