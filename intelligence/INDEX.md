@@ -1,5 +1,7 @@
 # 🧠 Intelligence Index
 
+- **[2026-04-05](intelligence/daily/2026-04-05_1811.md)** — 20件 — 完璧主義よりスピード重視の開発姿勢 / Anthropic成長戦略：14ヶ月で19B ARR達成 / 誤ったターゲット顧客が3倍高価格で契約、チャーン率4分の1
+
 - **[2026-04-05](intelligence/daily/2026-04-05_1208.md)** — 8件 — Claude料金を80%削減するコスト最適化テクニック / SaaS企業のPMF発見で35万ドル損失の教訓 / Claude統合でUnreal Engine完全制御可能なツール開発
 
 - **[2026-04-05](intelligence/daily/2026-04-05_0609.md)** — 14件 — Claudeを使った12時間自律開発システムの実装事例 / Claude API利用時のトークン消費を12倍削減するツール / README駆動開発でClaude活用
