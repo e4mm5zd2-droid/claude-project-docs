@@ -1,5 +1,7 @@
 # 🧠 Intelligence Index
 
+- **[2026-04-06](intelligence/daily/2026-04-06_0011.md)** — 22件 — AI VP of Customer Successが顧客応答率を10倍改善 / AI開発の落とし穴：設計判断を先送りするリスク / Claude運用の実際のコスト：月8-12ドルで本格運用
+
 - **[2026-04-05](intelligence/daily/2026-04-05_1811.md)** — 20件 — 完璧主義よりスピード重視の開発姿勢 / Anthropic成長戦略：14ヶ月で19B ARR達成 / 誤ったターゲット顧客が3倍高価格で契約、チャーン率4分の1
 
 - **[2026-04-05](intelligence/daily/2026-04-05_1208.md)** — 8件 — Claude料金を80%削減するコスト最適化テクニック / SaaS企業のPMF発見で35万ドル損失の教訓 / Claude統合でUnreal Engine完全制御可能なツール開発
