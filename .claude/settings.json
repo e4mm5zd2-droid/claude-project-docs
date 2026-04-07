@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__plugin_telegram_telegram__*",
+      "mcp__telegram__*",
+      "mcp__filesystem__*",
+      "mcp__git__*",
+      "mcp__csv__*",
+      "mcp__ide__*",
+      "Bash(*)",
+      "Read(*)",
+      "Edit(*)",
+      "Write(*)",
+      "Glob(*)",
+      "Grep(*)"
+    ],
+    "deny": []
+  }
+}

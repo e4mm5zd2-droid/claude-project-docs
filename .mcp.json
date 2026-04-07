@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "kurodo": {
+      "command": "/Users/on-the-edge/Projects/ote-orchestrator/venv/bin/python3",
+      "args": ["/Users/on-the-edge/Projects/ote-orchestrator/mcp/bridge.py"]
+    }
+  }
+}
