@@ -1,5 +1,7 @@
 # 🧠 Intelligence Index
 
+- **[2026-04-07](intelligence/daily/2026-04-07_1216.md)** — 47件 — スキル共有プラットフォーム：AI開発の新潮流 / Linkup：AI向け情報検索の新技術 / AIエージェント開発の核心：構造化コンテキストの重要性
+
 - **[2026-04-07](intelligence/daily/2026-04-07_0618.md)** — 56件 — Gemma Gem：ブラウザ埋込み型AIエージェント / AI時代のソロ開発者戦略：構築より検証速度重視 / SaaS創業者が月1万ドルで停滞する理由
 
 - **[2026-04-07](intelligence/daily/2026-04-07_0018.md)** — 69件 — SaaS創業者が0〜10k MRR間で陥る共通失敗パターンの分析 / Claude CodeでApp Store申請を自動化するBlitz / アンビエントAIマネージャー：Haiku活用の常時稼働システム
