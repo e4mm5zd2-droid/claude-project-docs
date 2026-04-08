@@ -1,4 +1,10 @@
 from services.sheets_service import get_monthly_summary
+
+# ote-orchestrator イベント発行
+try:
+    from orc_emit import emit_event as _orc_emit
+except ImportError:
+    _orc_emit = None
 from config import MONTHLY_BUDGETS, TOTAL_MONTHLY_BUDGET, ALERT_THRESHOLD, BUDGET_ALERT_ENABLED
 
 BIZ_NAMES = {"0": "全社", "1": "アフィリ", "2": "Xツール", "3": "求人", "4": "CRM"}
@@ -27,6 +33,15 @@ def check_budget() -> dict:
             alerts.append(f"🚨 事業{biz_num}({name})超過 ¥{amt:,}/¥{budget:,}")
         elif r >= ALERT_THRESHOLD:
             alerts.append(f"⚠️ 事業{biz_num}({name}){r:.0%} ¥{amt:,}/¥{budget:,}")
+
+    # ote-orchestrator にアラートイベント発行
+    if _orc_emit and alerts:
+        _orc_emit("expense.threshold", "expense-bot", {
+            "total_expense": total,
+            "budget": TOTAL_MONTHLY_BUDGET,
+            "burn_rate": ratio,
+            "alerts": alerts,
+        })
 
     return {
         "total": total,
