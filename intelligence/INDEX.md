@@ -1,5 +1,7 @@
 # 🧠 Intelligence Index
 
+- **[2026-04-09](intelligence/daily/2026-04-09_0018.md)** — 57件 — Claude Managed Agents公開β版リリース / Claude Skills活用でAIエージェント開発を効率化する実践方法 / SaaStr：3人の人間と20+エージェントで8桁収益を実現
+
 - **[2026-04-08](intelligence/daily/2026-04-08_1820.md)** — 59件 — Perplexity、AIエージェントで月間収益50%急増 / LinkedIn AIチャットボットでSaaS解約率21%→7%に改善 / Claude API利用料80%削減テクニック
 
 - **[2026-04-08](intelligence/daily/2026-04-08_1217.md)** — 39件 — デザイナーが作ったLinkedIn効率化ツール - ユーザー獲得の課題 / 世界最高精度のディープフェイク検出AI「Velma」 / Anthropic、NVIDIA超えには年商2000億ドル必要
