@@ -1,5 +1,7 @@
 # 🧠 Intelligence Index
 
+- **[2026-04-09](intelligence/daily/2026-04-09_1220.md)** — 71件 — Claude Managed Agents公開ベータ版リリース / AI エージェント構築の実践ガイド：文脈管理とスキル設計の重要性 / Gemma Gem - ブラウザ組み込みAIエージェント拡張
+
 - **[2026-04-09](intelligence/daily/2026-04-09_0619.md)** — 63件 — Claudeスキル活用法：AIエージェント成功の実践ガイド / ライフタイムディール販売で5万ドル調達した創業者の失敗談 / SaaSファウンダーの燃え尽き症候群と成長痛
 
 - **[2026-04-09](intelligence/daily/2026-04-09_0018.md)** — 57件 — Claude Managed Agents公開β版リリース / Claude Skills活用でAIエージェント開発を効率化する実践方法 / SaaStr：3人の人間と20+エージェントで8桁収益を実現
