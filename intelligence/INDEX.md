@@ -1,5 +1,7 @@
 # 🧠 Intelligence Index
 
+- **[2026-04-10](intelligence/daily/2026-04-10_0021.md)** — 79件 — Claude管理エージェント：事前構築エージェント基盤 / Claude新機能：アドバイザー戦略でコスト削減 / Claude Advisorで高品質・低コストAI開発
+
 - **[2026-04-09](intelligence/daily/2026-04-09_1820.md)** — 64件 — Claude自動コーディングで1ヶ月間広告運用実験 / Claude新機能でエージェントAI市場が激変 / Claude Codeによる自動化でMeta広告アカウントが永久BANされた事例
 
 - **[2026-04-09](intelligence/daily/2026-04-09_1220.md)** — 71件 — Claude Managed Agents公開ベータ版リリース / AI エージェント構築の実践ガイド：文脈管理とスキル設計の重要性 / Gemma Gem - ブラウザ組み込みAIエージェント拡張
