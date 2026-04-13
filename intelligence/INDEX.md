@@ -1,5 +1,7 @@
 # 🧠 Intelligence Index
 
+- **[2026-04-13](intelligence/daily/2026-04-13_1813.md)** — 2件 — AI活用による開発時間短縮の重要性 / BitBrain：GPUを収益化するAIサービス
+
 - **[2026-04-13](intelligence/daily/2026-04-13_1215.md)** — 38件 — AIエージェント時代のマーケティング戦略変革 / Druids: マルチエージェント開発ワークフロー構築ライブラリ / SigmaMind MCP：音声AI開発統合環境
 
 - **[2026-04-13](intelligence/daily/2026-04-13_0614.md)** — 31件 — Eve：業務特化AIエージェント基盤のShowHN / AIエージェント時代のマーケティング変革論 / AIが変えるB2B営業とマーケティング戦略
