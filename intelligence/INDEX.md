@@ -1,5 +1,7 @@
 # 🧠 Intelligence Index
 
+- **[2026-04-14](intelligence/daily/2026-04-14_0016.md)** — 49件 — AIエージェントが夜間に本番バグを自動修正した開発者の体験談 / Anthropic、キャッシュTTLを5分に短縮、コスト5倍増の衝撃 / AI Cardsワークフロー自動化ツール分析
+
 - **[2026-04-13](intelligence/daily/2026-04-13_1813.md)** — 2件 — AI活用による開発時間短縮の重要性 / BitBrain：GPUを収益化するAIサービス
 
 - **[2026-04-13](intelligence/daily/2026-04-13_1215.md)** — 38件 — AIエージェント時代のマーケティング戦略変革 / Druids: マルチエージェント開発ワークフロー構築ライブラリ / SigmaMind MCP：音声AI開発統合環境
