@@ -1,5 +1,7 @@
 # 🧠 Intelligence Index
 
+- **[2026-04-14](intelligence/daily/2026-04-14_0617.md)** — 54件 — AI業界の供給不足時代突入：スタートアップへの影響 / 感情プロンプトがClaudeのコード品質を向上 / Claude API運用コスト激増の実態分析と対策法
+
 - **[2026-04-14](intelligence/daily/2026-04-14_0016.md)** — 49件 — AIエージェントが夜間に本番バグを自動修正した開発者の体験談 / Anthropic、キャッシュTTLを5分に短縮、コスト5倍増の衝撃 / AI Cardsワークフロー自動化ツール分析
 
 - **[2026-04-13](intelligence/daily/2026-04-13_1813.md)** — 2件 — AI活用による開発時間短縮の重要性 / BitBrain：GPUを収益化するAIサービス
