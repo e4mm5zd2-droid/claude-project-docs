@@ -1,5 +1,7 @@
 # 🧠 Intelligence Index
 
+- **[2026-04-15](intelligence/daily/2026-04-15_0019.md)** — 69件 — Claude Routines発表：業界特化AI自動化の可能性 / Eve - マネージドAIエージェントプラットフォーム / Open Agents：本物のコードを書くオープンソースAIエージェント
+
 - **[2026-04-14](intelligence/daily/2026-04-14_1818.md)** — 57件 — TikTokスライド投稿で初期ユーザー200人獲得の実践ガイド / Superblocks 2.0：AIアプリ開発のエンタープライズガバナンス / AIエージェント向けWeb自動化ツール登場
 
 - **[2026-04-14](intelligence/daily/2026-04-14_1218.md)** — 64件 — AI業界の供給不足時代：スタートアップの戦略転換が必要 / CatDoes v4：AI完全自動開発ツール / Eve - マネージドAIエージェントハーネス
