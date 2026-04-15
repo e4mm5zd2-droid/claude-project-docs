@@ -2,15 +2,19 @@
 """
 Voice Memo → Structured Document Script
 
-音声ファイルを文字起こし → 構造化Markdownに変換し shared/docs/ に保存する。
+音声ファイルを文字起こし → 構造化Markdownに変換 → 事業別フォルダに自動振り分け。
 
 使い方:
-    python voice_memo.py recording.m4a
-    python voice_memo.py recording.m4a --output 事業計画_2026Q1.md
-    python voice_memo.py recording.m4a --transcript-only
+    python voice_memo.py recording.m4a                    # 自動振り分け
+    python voice_memo.py recording.m4a -b jigyou2         # 手動で事業指定
+    python voice_memo.py recording.m4a --auto-push        # 自動git push
+    python voice_memo.py recording.m4a --output 計画.md   # ファイル名指定
+    python voice_memo.py recording.m4a --transcript-only  # 文字起こしのみ
 """
 
 import argparse
+import json
+import subprocess
 import sys
 from datetime import datetime
 from pathlib import Path
@@ -20,7 +24,7 @@ import openai
 from dotenv import load_dotenv
 
 SCRIPT_DIR = Path(__file__).parent.resolve()
-DOCS_DIR = Path("/Users/apple/Projects/shared/docs")
+DOCS_DIR = SCRIPT_DIR / "shared" / "docs"
 TRANSCRIPTS_DIR = DOCS_DIR / "transcripts"
 
 SUPPORTED_FORMATS = {".m4a", ".mp3", ".wav", ".webm", ".ogg", ".flac"}
@@ -76,6 +80,31 @@ STRUCTURING_PROMPT = """\
 {transcript}
 """
 
+# 自動振り分け用プロンプト
+ROUTING_PROMPT = """\
+以下の文字起こしテキストの内容を分析し、どの事業に該当するか判定してください。
+
+事業一覧:
+- jigyou1: 暗号通貨アフィリエイト（仮想通貨、取引所、アフィリ、広告運用）
+- jigyou2: Xツール販売（Twitter/X関連ツール、SNSマーケ、自動化ツール）
+- jigyou3: 京都ボーイ求人（求人、ナイトワーク、京都、ボーイ、スカウト）
+- jigyou4: スカウトCRM（CRM、顧客管理、スカウト管理、営業支援）
+- sokatsu: 統括/全社（経営、複数事業にまたがる、該当なし、会社全体の話）
+
+判定ルール:
+- 1つの事業に明確に該当 → その事業名を返す
+- 複数事業にまたがる → sokatsu
+- どの事業にも該当しない → sokatsu
+- 判断できない → sokatsu
+
+JSONのみで回答してください（他のテキスト不要）:
+{{"business": "jigyou1〜4またはsokatsu", "reason": "判定理由を1行で"}}
+
+文字起こしテキスト:
+
+{transcript}
+"""
+
 
 def load_env():
     env_path = SCRIPT_DIR / ".env"
@@ -125,17 +154,60 @@ def save_transcript(transcript: str, stem: str) -> Path:
     return path
 
 
+def auto_route(transcript: str) -> tuple[str, str]:
+    """Claudeで文字起こし内容を分析し、該当事業を自動判定"""
+    client = anthropic.Anthropic()
+    prompt = ROUTING_PROMPT.format(transcript=transcript[:3000])
+
+    message = client.messages.create(
+        model="claude-sonnet-4-6",
+        max_tokens=256,
+        messages=[{"role": "user", "content": prompt}],
+    )
+
+    raw = message.content[0].text.strip()
+    try:
+        data = json.loads(raw)
+        business = data.get("business", "sokatsu")
+        reason = data.get("reason", "")
+    except json.JSONDecodeError:
+        business = "sokatsu"
+        reason = "JSONパース失敗、sokatsuにフォールバック"
+
+    if business not in BUSINESS_MINUTES_DIRS:
+        business = "sokatsu"
+        reason = f"不明な事業名 → sokatsuにフォールバック"
+
+    return business, reason
+
+
 def save_structured(content: str, output_name: str, business: str = None) -> Path:
     """構造化Markdownを保存"""
     if business and business in BUSINESS_MINUTES_DIRS:
         target_dir = SCRIPT_DIR / BUSINESS_MINUTES_DIRS[business]
     else:
-        target_dir = DOCS_DIR
+        target_dir = SCRIPT_DIR / BUSINESS_MINUTES_DIRS["sokatsu"]
 
     target_dir.mkdir(parents=True, exist_ok=True)
     path = target_dir / output_name
     path.write_text(content, encoding="utf-8")
     return path
+
+
+def git_push(file_path: Path, business: str) -> bool:
+    """git add → commit → push を実行"""
+    try:
+        subprocess.run(["git", "pull", "--rebase"], cwd=SCRIPT_DIR, check=True, capture_output=True)
+        subprocess.run(["git", "add", str(file_path)], cwd=SCRIPT_DIR, check=True, capture_output=True)
+        msg = f"update: {business} 音声メモ追加 ({file_path.name})"
+        subprocess.run(["git", "commit", "-m", msg], cwd=SCRIPT_DIR, check=True, capture_output=True)
+        subprocess.run(["git", "push", "origin", "master"], cwd=SCRIPT_DIR, check=True, capture_output=True)
+        return True
+    except subprocess.CalledProcessError as e:
+        print(f"git操作エラー: {e}", file=sys.stderr)
+        if e.stderr:
+            print(f"  詳細: {e.stderr.decode()}", file=sys.stderr)
+        return False
 
 
 def main():
@@ -153,7 +225,12 @@ def main():
         "--business", "-b",
         choices=list(BUSINESS_MINUTES_DIRS.keys()),
         default=None,
-        help="事業別フォルダに出力 (例: -b jigyou2 → jigyou2/minutes/ に保存)",
+        help="事業別フォルダに手動指定 (例: -b jigyou2)。省略時はClaude自動振り分け",
+    )
+    parser.add_argument(
+        "--auto-push",
+        action="store_true",
+        help="保存後に自動で git add → commit → push",
     )
     args = parser.parse_args()
 
@@ -188,8 +265,17 @@ def main():
         print(f"\n--- 文字起こし ---\n{transcript}")
         return
 
-    # Step 3: Claude で構造化
-    print("[3/3] 構造化中... (Claude API)")
+    # Step 3: 事業振り分け（手動 or 自動）
+    if args.business:
+        business = args.business
+        print(f"[3/4] 事業振り分け: {business}（手動指定）")
+    else:
+        print("[3/4] 事業振り分け中... (Claude自動判定)")
+        business, reason = auto_route(transcript)
+        print(f"      → {business}（理由: {reason}）")
+
+    # Step 4: Claude で構造化
+    print("[4/4] 構造化中... (Claude API)")
     structured = structure_transcript(transcript, audio_path.name)
 
     # 出力ファイル名の決定
@@ -201,11 +287,18 @@ def main():
     else:
         output_name = f"{today}_{stem}.md"
 
-    output_path = save_structured(structured, output_name, args.business)
-    print(f"      完了: {output_path}")
+    output_path = save_structured(structured, output_name, business)
+    print(f"      保存先: {output_path}")
 
-    biz_label = f" (事業: {args.business})" if args.business else ""
-    print(f"\n次のステップ: git add & push で Claude Projects に反映{biz_label}")
+    # auto-push
+    if args.auto_push:
+        print("\ngit push中...")
+        if git_push(output_path, business):
+            print(f"✅ 保存・push完了（{output_path}）")
+        else:
+            print("⚠️ git pushに失敗。手動でpushしてください。", file=sys.stderr)
+    else:
+        print(f"\n次のステップ: git add & push で Claude Projects に反映 (事業: {business})")
 
 
 if __name__ == "__main__":

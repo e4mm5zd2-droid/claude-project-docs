@@ -59,3 +59,21 @@ claude-project-docs/
 - コミットメッセージ形式: "update: [事業名] [概要]"
 - 例: "update: 事業1 村上との会議メモ追加"
 - git pull は push 前に必ず実行（衝突防止）
+### 音声ファイルを受け取ったとき
+1. Telegramで音声ファイル（.m4a/.mp3/.wav/.webm/.ogg/.flac/.oga）を受信したら:
+   - `download_attachment` でファイルをダウンロードする
+   - ダウンロードしたファイルパスを確認する
+2. voice_memo.py を実行する:
+   - 実行前に必ず .env を読み込む: `set -a && source ~/Projects/claude-project-docs/.env && set +a`
+   - コマンド: `python3 voice_memo.py [ダウンロードしたファイルパス] --auto-push`
+   - つまり: `cd ~/Projects/claude-project-docs && set -a && source .env && set +a && python3 voice_memo.py [ファイルパス] --auto-push`
+   - 作業ディレクトリ: ~/Projects/claude-project-docs/
+3. voice_memo.py が自動で以下を実行する:
+   - Whisper APIで文字起こし
+   - Claudeで内容分析→事業フォルダ自動振り分け（該当なし/複数事業→sokatsu）
+   - 構造化Markdown変換
+   - 事業別minutesフォルダに保存
+   - git add → commit → push
+4. 完了後「✅ 音声メモ処理完了（[保存先パス]、事業: [振り分け先]）」と返信する
+5. メッセージに「-b jigyou2」等の事業指定があれば、コマンドに `-b jigyou2` を追加する
+6. Telegramのボイスメッセージ（.oga形式）も同様に処理する
