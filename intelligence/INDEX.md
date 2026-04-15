@@ -1,5 +1,7 @@
 # 🧠 Intelligence Index
 
+- **[2026-04-15](intelligence/daily/2026-04-15_1219.md)** — 61件 — Claude Routinesとトリガー型AI事業戦略 / SaaS開発の「計画病」への警告と実行の重要性 / AI需給逼迫時代の到来：計算リソース不足が事業戦略に与える影響
+
 - **[2026-04-15](intelligence/daily/2026-04-15_0618.md)** — 67件 — Claude Routines：AIエージェントトリガー型事業モデル / 60万行のAI生成コードレビューから見る落とし穴 / Eve - マネージドAIエージェントサービスの実装例
 
 - **[2026-04-15](intelligence/daily/2026-04-15_0019.md)** — 69件 — Claude Routines発表：業界特化AI自動化の可能性 / Eve - マネージドAIエージェントプラットフォーム / Open Agents：本物のコードを書くオープンソースAIエージェント
