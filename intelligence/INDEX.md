@@ -1,5 +1,7 @@
 # 🧠 Intelligence Index
 
+- **[2026-04-17](intelligence/daily/2026-04-17_0016.md)** — 60件 — $100K MRRアプリのユーザーオンボーディング戦略 / LangAlpha：ウォール街向けAIエージェント / Claude Opus 4.7リリース - API性能向上
+
 - **[2026-04-16](intelligence/daily/2026-04-16_1817.md)** — 60件 — AIエージェント時代の営業戦略変革 / OpenAI Agents SDK - プロダクション対応エージェント構築 / SaaS終焉論：エージェントがダッシュボードを置き換える
 
 - **[2026-04-16](intelligence/daily/2026-04-16_1217.md)** — 58件 — AIエージェントがヒューマンワーカーを雇用するマーケットプレイス構想 / AIエージェント運用の隠れたコスト / OpenAI Agents SDK - 本格的AIエージェント開発環境
