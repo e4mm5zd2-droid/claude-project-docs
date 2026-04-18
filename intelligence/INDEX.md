@@ -1,5 +1,7 @@
 # 🧠 Intelligence Index
 
+- **[2026-04-18](intelligence/daily/2026-04-18_1216.md)** — 52件 — Claude Designローンチでデザイン業界激震 / Claude Opus 4.7の実用性低下を検証 / AI ウェブサイトビルダーのホワイトラベル型SaaSモデル
+
 - **[2026-04-18](intelligence/daily/2026-04-18_0617.md)** — 52件 — AI エージェント運用で発生した3つの問題と保守の重要性 / AIエージェント時代のウェブサイト革命 / AnthropicがAIアプリケーション市場を本格侵食開始
 
 - **[2026-04-18](intelligence/daily/2026-04-18_0019.md)** — 78件 — AnthropicがAI包装事業の終焉を告げる / LangAlpha：ウォール街向けAIエージェント開発の技術実装 / Claude Design発表：AI設計ツールの新展開
