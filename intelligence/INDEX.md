@@ -1,5 +1,7 @@
 # 🧠 Intelligence Index
 
+- **[2026-04-18](intelligence/daily/2026-04-18_0617.md)** — 52件 — AI エージェント運用で発生した3つの問題と保守の重要性 / AIエージェント時代のウェブサイト革命 / AnthropicがAIアプリケーション市場を本格侵食開始
+
 - **[2026-04-18](intelligence/daily/2026-04-18_0019.md)** — 78件 — AnthropicがAI包装事業の終焉を告げる / LangAlpha：ウォール街向けAIエージェント開発の技術実装 / Claude Design発表：AI設計ツールの新展開
 
 - **[2026-04-17](intelligence/daily/2026-04-17_1817.md)** — 58件 — Anthropic参入でAIラッパー事業の競争激化 / Claude Design発表：AI駆動のデザイン作成ツール / Claude Opus 4.7の重大な性能劣化報告
