@@ -1,5 +1,7 @@
 # 🧠 Intelligence Index
 
+- **[2026-04-18](intelligence/daily/2026-04-18_1814.md)** — 36件 — AIエージェントが変える顧客接点の設計 / LangAlpha：ウォール街向けClaude風AIエージェント / Claude開発効率化：Esc+Escで前状態に戻る機能
+
 - **[2026-04-18](intelligence/daily/2026-04-18_1216.md)** — 52件 — Claude Designローンチでデザイン業界激震 / Claude Opus 4.7の実用性低下を検証 / AI ウェブサイトビルダーのホワイトラベル型SaaSモデル
 
 - **[2026-04-18](intelligence/daily/2026-04-18_0617.md)** — 52件 — AI エージェント運用で発生した3つの問題と保守の重要性 / AIエージェント時代のウェブサイト革命 / AnthropicがAIアプリケーション市場を本格侵食開始
