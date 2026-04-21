@@ -1,5 +1,7 @@
 # 🧠 Intelligence Index
 
+- **[2026-04-21](intelligence/daily/2026-04-21_1222.md)** — 73件 — 機能削減で月500万円達成のSaaS事業転換事例 / Fortune100顧客獲得でもVCから無視される理由 / RapidNative：完全なアプリを自動生成するAIビルダー
+
 - **[2026-04-21](intelligence/daily/2026-04-21_0617.md)** — 52件 — Claude Opus 4.5の高効率化でAI運用コストが60%削減 / AI供給不足時代の到来：スタートアップが直面する新たな挑戦 / 完全自律AIエージェント「Flowfi」のDeFi連携実装事例
 
 - **[2026-04-21](intelligence/daily/2026-04-21_0017.md)** — 48件 — 機能削減で$7K MRRを達成したSaaS再構築事例 / Claude Opus 4.5は高額だが効率的でコスト削減 / AI供給不足の時代到来：GPU価格高騰と戦略変更
