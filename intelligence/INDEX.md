@@ -1,5 +1,7 @@
 # 🧠 Intelligence Index
 
+- **[2026-04-21](intelligence/daily/2026-04-21_0017.md)** — 48件 — 機能削減で$7K MRRを達成したSaaS再構築事例 / Claude Opus 4.5は高額だが効率的でコスト削減 / AI供給不足の時代到来：GPU価格高騰と戦略変更
+
 - **[2026-04-20](intelligence/daily/2026-04-20_1817.md)** — 48件 — AI営業エージェントによる完全自動化ディスカバリー / Claude Opus 4.5のトークン効率化による大幅コスト削減 / Pieter Levelsがプライバシー問題でChrome拡張機能を自作
 
 - **[2026-04-20](intelligence/daily/2026-04-20_1216.md)** — 43件 — Claude 4.7の思考制御変更への批判と教訓 / Claude活用：企画立案の逆転アプローチ手法 / LLMパラダイムシフト：シングルエージェント限界論
