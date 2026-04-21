@@ -1,5 +1,7 @@
 # 🧠 Intelligence Index
 
+- **[2026-04-21](intelligence/daily/2026-04-21_1819.md)** — 59件 — LinkedIn自動化SaaS、18ヶ月で120万ドル達成の成功事例 / 開発代行業界のAI破壊実態レポート / 1年間誰も使わないSaaS→自分の課題解決で月売上7000ドル達成
+
 ## 📅 Daily Reports（直近7日のみ保持）
 
 - **[2026-04-21](intelligence/daily/2026-04-21_1222.md)** — 73件 — 機能削減で月500万円達成のSaaS事業転換事例 / Fortune100顧客獲得でもVCから無視される理由 / RapidNative：完全なアプリを自動生成するAIビルダー
