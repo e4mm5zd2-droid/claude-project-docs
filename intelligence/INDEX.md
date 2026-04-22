@@ -1,5 +1,7 @@
 # 🧠 Intelligence Index
 
+- **[2026-04-22](intelligence/daily/2026-04-22_1821.md)** — 82件 — 大企業のAI評価指標の落とし穴と正しい活用法 / B2B AI市場の現実：エージェントの課題と新興ツールの台頭 / GoModel：軽量オープンソースAIゲートウェイ
+
 - **[2026-04-22](intelligence/daily/2026-04-22_1220.md)** — 77件 — Claude Codeで半分の案件を失った開発会社の分析 / Charlie Labs、AIエージェント開発からメンテナンス特化にピボット / LinkedInツールで120万ドル達成の具体戦略
 
 - **[2026-04-22](intelligence/daily/2026-04-22_0619.md)** — 66件 — GoModel - 軽量17MBのオープンソースAIゲートウェイ / LinkedInツールSaaS、12ヶ月で120万ドル収益達成 / Facebook活用で初月5千ドル達成のSaaS事例
