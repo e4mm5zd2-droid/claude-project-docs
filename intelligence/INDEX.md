@@ -1,5 +1,7 @@
 # 🧠 Intelligence Index
 
+- **[2026-04-22](intelligence/daily/2026-04-22_1220.md)** — 77件 — Claude Codeで半分の案件を失った開発会社の分析 / Charlie Labs、AIエージェント開発からメンテナンス特化にピボット / LinkedInツールで120万ドル達成の具体戦略
+
 - **[2026-04-22](intelligence/daily/2026-04-22_0619.md)** — 66件 — GoModel - 軽量17MBのオープンソースAIゲートウェイ / LinkedInツールSaaS、12ヶ月で120万ドル収益達成 / Facebook活用で初月5千ドル達成のSaaS事例
 
 - **[2026-04-22](intelligence/daily/2026-04-22_0018.md)** — 63件 — SaaSが1.2M$到達：代理店モデルで売上の25%獲得 / AI開発ツールが開発代行業界に与える影響の実態分析 / Facebook群活用で月5千ドル達成のSaaS起業事例
