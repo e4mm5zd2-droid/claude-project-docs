@@ -1,5 +1,7 @@
 # 🧠 Intelligence Index
 
+- **[2026-04-25](intelligence/daily/2026-04-25_0610.md)** — 37件 — Browser Harness：LLMに最大限の自由を与えるブラウザ自動化 / Agent Vault - AIエージェント向け認証プロキシ / Broccoli：自動コーディングエージェントのハーネス
+
 - **[2026-04-25](intelligence/daily/2026-04-25_0013.md)** — 53件 — LLMにブラウザ操作の完全な自由度を与えるBrowser Harness / AIエージェント向けオープンソース認証プロキシ / Broccoli：クラウド上でタスクを独立実行するオープンソースコーディングエージェント
 
 - **[2026-04-24](intelligence/daily/2026-04-24_1814.md)** — 52件 — 月商25k SaaS売却創設者の実践的成長戦略 / プロダクト動画を完全自動化するAIパイプライン / Claude Code大規模分析：AIサービス開発の落とし穴
