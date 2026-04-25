@@ -1,5 +1,7 @@
 # 🧠 Intelligence Index
 
+- **[2026-04-25](intelligence/daily/2026-04-25_1210.md)** — 40件 — SaaS創業者の転身戦略：技術特化とパートナーシップ / 看護学生がClaude Haikuで66万ページの医薬品DBを構築 / Claude活用でGoogle広告運用自動化、5日で成果
+
 - **[2026-04-25](intelligence/daily/2026-04-25_0610.md)** — 37件 — Browser Harness：LLMに最大限の自由を与えるブラウザ自動化 / Agent Vault - AIエージェント向け認証プロキシ / Broccoli：自動コーディングエージェントのハーネス
 
 - **[2026-04-25](intelligence/daily/2026-04-25_0013.md)** — 53件 — LLMにブラウザ操作の完全な自由度を与えるBrowser Harness / AIエージェント向けオープンソース認証プロキシ / Broccoli：クラウド上でタスクを独立実行するオープンソースコーディングエージェント
