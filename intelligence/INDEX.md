@@ -1,5 +1,7 @@
 # 🧠 Intelligence Index
 
+- **[2026-04-26](intelligence/daily/2026-04-26_0009.md)** — 31件 — SaaS単独開発の限界とCTO特化戦略 / オープンソースAIエージェント記憶層技術 / AIエージェント用ナレッジ基盤「WUPHF」- Markdown+Git構成
+
 - **[2026-04-25](intelligence/daily/2026-04-25_1809.md)** — 37件 — Browser Harness - LLMに最大の自由度を与えるブラウザ自動化 / オープンソースAIメモリレイヤーツール / AIエージェント向けMarkdown+Git wiki基盤
 
 - **[2026-04-25](intelligence/daily/2026-04-25_1210.md)** — 40件 — SaaS創業者の転身戦略：技術特化とパートナーシップ / 看護学生がClaude Haikuで66万ページの医薬品DBを構築 / Claude活用でGoogle広告運用自動化、5日で成果
