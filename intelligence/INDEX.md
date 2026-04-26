@@ -1,5 +1,7 @@
 # 🧠 Intelligence Index
 
+- **[2026-04-26](intelligence/daily/2026-04-26_1209.md)** — 33件 — 超軽量AIゲートウェイGoModel - LiteLLM代替 / Broccoli：Linear連携でPR自動作成するコーディングエージェント / Claude開発向けプロジェクト追跡ツール「Storybloq」がオープンソース化
+
 - **[2026-04-26](intelligence/daily/2026-04-26_0608.md)** — 27件 — Browser Harness：LLMにブラウザ操作の完全な自由度を与える新手法 / Broccoliオープンソースコーディングエージェント / スタートアップ創業者のバーンアウト体験と立ち直り
 
 - **[2026-04-26](intelligence/daily/2026-04-26_0009.md)** — 31件 — SaaS単独開発の限界とCTO特化戦略 / オープンソースAIエージェント記憶層技術 / AIエージェント用ナレッジ基盤「WUPHF」- Markdown+Git構成
